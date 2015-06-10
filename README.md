@@ -9,9 +9,6 @@ Based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with
 1. [Getting Started](#getting-started)
 2. [Fire It Up](#fire-it-up)
 3. [File Organization](#file-organization)
-4. [Methodologies & Principles](#methodologies-principles)
-5. [Code Guidelines](#code-guidelines)
-6. [Practical Examples](#practical-examples)
 
 ## Getting Started
 
@@ -34,7 +31,7 @@ You'll need to clone this repository so that its on your local computer.
 
 ```
 $ cd /path/to/your/repo
-$ git clone https://mnetpbldev@bitbucket.org/mnetpbldev/styleguide.git (HTTPS Method)
+$ git clone git@github.com:nauerster/sass-base.git
 
 ```
 
