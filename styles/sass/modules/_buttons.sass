@@ -1,0 +1,152 @@
+// ==========================================================================
+// Buttons
+//
+// [1] Button Structure
+// [2] Base Build
+// [3] Sizes
+// [4] Colors and States
+// [5] Types
+// ==========================================================================
+
+
+
+// Variables
+// ==========================================================================
+
+$button__padding                    : rem(8) rem(14) !default
+$button__font--family               : $font__default
+
+
+// [1] Structure the button
+// ==========================================================================
+
+%button
+  display: inline-block
+  *display: inline
+  zoom: 1
+  margin: 0
+  text-align: center
+  vertical-align: middle
+  text-decoration: none
+  text-shadow: none
+  white-space: nowrap
+  letter-spacing: 0.0625rem
+
+
+// [2] Build button base
+// ==========================================================================
+
+.btn
+  @extend %button
+  +size(auto, auto)
+  +font-size(14)
+  +box-shadow(none)
+  font-family: $button__font--family
+  border: 1px solid transparent
+
+
+// [3] Sizes
+// ==========================================================================
+
+.btn
+
+  padding: $button__padding
+
+  &--sm
+    +font-size(12)
+    padding: rem(5) rem(10)
+
+  &--lg
+    +font-size(18)
+    padding: rem(10) rem(16)
+
+  &--jumbo
+    +font-size(36)
+    +padding(16,20)
+
+  &--fluid
+    width: 100%
+
+
+// [4] Colors and States
+// ==========================================================================
+
+.btn
+
+  &--primary
+    +button-skin($white, $color__primary)
+
+  &--secondary
+    +button-skin($white, $color__secondary)
+
+  &--accent
+    +button-skin($white, $color__accent)
+
+  &--success
+    +button-skin($white, $color__success)
+
+  &--info
+    +button-skin($white, $color__info)
+
+  &--warning
+    +button-skin($white, $color__warning)
+
+  &--danger
+    +button-skin($white, $color__danger)
+
+  &--disabled
+    +button-skin($white, $color__disabled)
+
+    &:hover
+      cursor: not-allowed
+
+
+// Outlined
+
+.btn--outline
+
+  background-color: transparent
+
+  &.btn--primary
+    color: $color__primary
+
+  &.button--secondary
+    color: $color__secondary
+
+  &.button--accent
+    color: $color__accent
+
+  &.button--success
+    color: $color__success
+
+  &.button--info
+    color: $color__info
+
+  &.button--warning
+    color: $color__warning
+
+
+  &.button--danger
+    color: $color__danger
+
+  &:hover,
+  &:focus
+    color: $white
+
+
+// [5] Types
+// ==========================================================================
+
+// Pill Shaped
+
+.btn--pill
+  +radius(2px)
+
+// Flat Buttons (looks like a normal link)
+
+.btn--flat
+  padding: 0
+  border: none
+  background-color: transparent
+
+

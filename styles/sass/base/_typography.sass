@@ -1,0 +1,141 @@
+// ==========================================================================
+// Typography
+//
+// Titles: What is this page about?
+// Headings: What will I learn?
+// Headlines: Used to introduce a story and entice the reader to read-on
+// ==========================================================================
+
+
+
+// Defaults
+//
+// $base__font--size = 16px
+// ==========================================================================
+
+html,
+body,
+h1,h2,h3,h4,h5,h6,p
+  font-family: $font__default
+  font-weight: $font__weight--thin
+  color: $color__primary
+
+html
+
+  font-size: 45%
+
+  +respond-to($tablet)
+    font-size: 55%
+
+  +respond-to($desktop)
+    // font-size is 16px at this point
+    font-size: 62.5%
+
+  +respond-to($widescreen)
+    font-size: 72%
+
+
+// Titles, Headlines, and Headings
+// ==========================================================================
+
+h1,h2,h3,h4,h5,h6,p
+  line-height: $base__line-height
+
+
+.title
+  +font-size(70)
+
+.heading
+  +font-size(50)
+
+.heading--secondary
+  +font-size(30)
+
+.headline
+  +font-size(21)
+  color: $color__secondary--shaded
+  font-weight: $font__weight--light
+
+  +respond-to($tablet)
+    font-weight: $font__weight--thin
+
+// Emphasize Text
+// ==========================================================================
+
+.inominate
+  font-family: $font__logo
+
+.callout
+  +font-size(14)
+  font-weight: $font__weight--bold
+
+  &--caps
+    @extend %all-caps
+
+.underline
+  text-decoration: underline
+
+.highlight
+  background-color: $color__highlight--yellow
+
+
+// Text Colors
+// ==========================================================================
+
+.inverse
+  color: $color__inverse
+
+
+// Subheading Ex: <h2><small>Subtitle</small></h2>
+// ==========================================================================
+
+small,
+.subcopy
+  font-size: 65%
+
+
+// Content
+// ==========================================================================
+
+.content__body
+  +font-size(18)
+  line-height: $base__line-height
+  color: $color__secondary--shaded
+  font-weight: $font__weight--light
+
+  +respond-to($tablet)
+    +font-size(18)
+    line-height: 1.5em
+    font-weight: $font__weight--thin
+
+  &--sm
+    +font-size(12)
+
+
+// Code Blocks
+// ==========================================================================
+
+.code
+  +font-size(12)
+  @extend %word-wrap
+  font-weight: $font__weight--light
+  font-family: $font__family--monospace
+  color: $color__primary--tinted
+
+
+// Icons
+// icon = 14px | sm = 12px | md = 18px | lg = 24px
+// ==========================================================================
+
+.icon
+
+  +font-size(14)
+
+  &--sm
+    +font-size(12)
+
+  &--md
+    +font-size(18)
+
+  &--lg
+    +font-size(24)

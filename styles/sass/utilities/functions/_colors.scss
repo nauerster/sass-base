@@ -1,0 +1,92 @@
+// ==========================================================================
+// Functions - Colors
+//
+//
+// Notes:
+// The Web Content Accessibility Guidelines state that the contrast
+// ratio between foreground images/text and a background should be at
+// least 4.5:1 (3:1 for larger text) for level AA, and 7:1 (4.5:1 for
+// larger text) for level AAA. You can read more about the contrast
+// minimum to understand the rationale and how this value is calculated.
+//
+// Contrast Ratio Tool: http://leaverou.github.io/contrast-ratio/
+// ==========================================================================
+
+// Establish color interval pattern
+
+
+
+// Map core theme colors
+//scotch.io/tutorials/aesthetic-sass-2-colors
+// ex: $color__button: color-palette('primary')
+
+// @function color-palette($key: primary) {
+
+//   @return map-get($color-theme, $key);
+
+// }
+
+
+@function color-palette($color) {
+
+  @if not map-has-key($color__theme, $color) {
+    @warn "No color found for `#{$color}` in $color-theme map. Property omitted."
+  }
+
+  @return map-get($color__theme, $color)
+
+}
+
+@function tint($color, $percentage) {
+
+  @return mix($color, white, $percentage);
+
+}
+
+@function shade($color, $percentage) {
+
+  @return mix($color, black, $percentage);
+
+}
+
+// // Map color levels
+// // ex: background-color: theme--level('primary', 2)
+
+// @function color-palette-level($color-name: 'primary', $level: 0) {
+
+//   $color: color-palette($color-name);
+//   $color-base: if($level < 0, black, white);
+
+//   @return mix($color-base, $color, $level * $color-interval);
+
+// }
+
+// // Aggregate opacity and transparency levels
+// // ex: $color__button--transparent: color-palette-alpha('primary', 'light')
+
+// @function color-palette-alpha($name: 'primary', $opacity: 0) {
+
+//   $color: color-palette($name);
+
+//   // Get the named opacity level, if it exists
+//   @if map-key-exists($color-opacity, $opacity) {
+//     $opacity: map-get($color-opacity, $opacity)
+//   }
+
+//   // Use rgba() to manipulate the color's alpha level
+//   @return rgba($color, $opacity);
+
+// }
+
+// // Aggregate contrast and accessibilty levels
+// // Returns either a dark or light foreground color, given
+// // the background color
+
+// @function color-palette-foreground($color-bg, $threshold: .65) {
+
+//   @return if(lightness($color-bg) >= $threshold, $color-dark, $color-light);
+
+// }
+
+
+

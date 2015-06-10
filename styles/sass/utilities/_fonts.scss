@@ -1,0 +1,108 @@
+// ==========================================================================
+// FONT-FACE
+// ==========================================================================
+
+@if variable-exists(font__vendor--google) {
+  @import url($font__vendor--google);
+}
+
+@if variable-exists(font-awesome) {
+  @import url($font-awesome);
+}
+
+@if variable-exists(ionic-icons-url) {
+  @import url($ionic-icons-url);
+}
+
+
+@if variable-exists(fonts) {
+  @each $font-face in $fonts {
+    @font-face {
+      font-family: $font-face;
+      src: url('../fonts/#{$font-face}.eot');
+      src: url('../fonts/#{$font-face}.eot?#iefix') format('embedded-opentype'),
+           url('../fonts/#{$font-face}.woff') format('woff'),
+           url('../fonts/#{$font-face}.ttf') format('truetype'),
+           url('../fonts/#{$font-face}.svg##{$font-face}') format('svg');
+      font-style: normal;
+      font-weight: normal;
+    }
+  }
+}
+
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "asap-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  //width: 1em;
+  //margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  //line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  //margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-dropbox:before { content: '\e800'; } /* '' */
+.icon-popup:before { content: '\e801'; } /* '' */
+.icon-database:before { content: '\e802'; } /* '' */
+.icon-arrow-left:before { content: '\e803'; } /* '' */
+.icon-arrow-right:before { content: '\e804'; } /* '' */
+.icon-list:before { content: '\e805'; } /* '' */
+.icon-dots:before { content: '\e806'; } /* '' */
+.icon-campaign:before { content: '\e807'; } /* '' */
+.icon-key:before { content: '\e808'; } /* '' */
+.icon-chart-line:before { content: '\e809'; } /* '' */
+.icon-tag:before { content: '\e80a'; } /* '' */
+.icon-cancel-circled:before { content: '\e80b'; } /* '' */
+.icon-home:before { content: '\e80c'; } /* '' */
+.icon-pencil:before { content: '\e80d'; } /* '' */
+.icon-bell:before { content: '\e80e'; } /* '' */
+.icon-flow-cascade:before { content: '\e80f'; } /* '' */
+.icon-arrow-down:before { content: '\e810'; } /* '' */
+.icon-arrow-up:before { content: '\e811'; } /* '' */
+.icon-search:before { content: '\e812'; } /* '' */
+.icon-plus:before { content: '\e813'; } /* '' */
+.icon-link:before { content: '\e814'; } /* '' */
+.icon-info:before { content: '\e815'; } /* '' */
+.icon-eye:before { content: '\e816'; } /* '' */
+.icon-user:before { content: '\e817'; } /* '' */
+.icon-cancel:before { content: '\e818'; } /* '' */
+.icon-heart:before { content: '\e819'; } /* '' */
+.icon-heart-empty:before { content: '\e81a'; } /* '' */
+.icon-mail:before { content: '\e81b'; } /* '' */
+.icon-rss:before { content: '\e81c'; } /* '' */
+.icon-twitter:before { content: '\e81d'; } /* '' */
+.icon-facebook:before { content: '\e81e'; } /* '' */
+.icon-github:before { content: '\e81f'; } /* '' */
+.icon-trophy:before { content: '\e820'; } /* '' */
+.icon-erase:before { content: '\e821'; } /* '' */
+.icon-pinterest:before { content: '\e822'; } /* '' */
+.icon-tumblr:before { content: '\e823'; } /* '' */
+.icon-linkedin:before { content: '\e824'; } /* '' */
+.icon-instagram:before { content: '\e825'; } /* '' */
+.icon-picture:before { content: '\e826'; } /* '' */
+.icon-reload:before { content: '\e827'; } /* '' */
+.icon-cog:before { content: '\e828'; } /* '' */
+.icon-grid-view:before { content: '\e829'; } /* '' */
+.icon-list-view:before { content: '\e82a'; } /* '' */

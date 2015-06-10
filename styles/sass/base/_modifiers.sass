@@ -1,0 +1,234 @@
+// ==========================================================================
+// Modifiers
+//
+// Not to be confused with 'helpers'.
+// Modifiers should only be used within the Mark-Up
+// Single Responsibilty Classes
+//
+// [1] Images
+// [2] Text Related
+// [3] Borders
+// [4] Layout Helpers
+// ==========================================================================
+
+
+// Images
+// ==========================================================================
+
+.img-responsive
+  max-width: 100%
+  height: auto
+  display: inline-block
+  *zoom: 1
+
+
+// Text
+// ==========================================================================
+
+.txt-hidden
+  font: 0/0 a
+  text-shadow: none
+  color: transparent
+
+.txt-offset
+  text-indent: -9999px
+
+// Text Layout:
+
+.txt-left
+  text-align: left
+
+.txt-center,
+.center-children *
+  text-align: center
+
+.txt-right
+  text-align: right
+
+// Borders
+// ==========================================================================
+
+.brd-none
+  border: 0 !important
+
+.brd-tb-none
+  border-top: 0 !important
+  border-bottom: 0 !important
+
+.brd-lr-none
+  border-left: 0 !important
+  border-right: 0 !important
+
+.brd-thin
+  border-weight: 1px
+
+.brd-light
+  border-weight: 2px
+
+.brd-medium
+  border-weight: 3px
+
+.brd--large
+  border-weight: 5px
+
+
+// Layout Helpers
+// ==========================================================================
+
+.show,
+.block
+  display: block !important
+
+.inline
+  display: inline
+
+.inline-block
+  display: inline-block
+
+.hidden
+  display: none !important
+  visibility: hidden !important
+
+.invisible
+  visibility: hidden !important
+
+// Clear fix for floated elements
+
+.clearfix
+  @extend %clearfix
+
+
+// Floats
+// ==========================================================================
+
+.pull-left
+  float: left !important
+
+.pull-right
+  float: right !important
+
+
+// Padding / Margin Overrides
+
+.pad-none
+  padding: 0 !important
+
+.pad-tb-none
+  padding-top: 0px !important
+  padding-bottom: 0px !important
+
+.pad-lr-none
+  padding-left: 0px !important
+  padding-right: 0px !important
+
+.pad-top-sm
+  padding-top: 0.625rem !important
+  padding-top: 10px !important
+
+.pad-bottom-sm
+  padding-bottom: 0.625rem !important
+  padding-bottom: 10px !important
+
+.pad-left-sm
+  padding-left: 0.625rem !important
+  padding-left: 10px !important
+
+.pad-right-sm
+  padding-right: 0.625rem !important
+  padding-right: 10px !important
+
+.pad-top-md
+  padding-top: 1.25rem !important
+  padding-top: 20px !important
+
+.pad-bottom-md
+  padding-bottom: 1.25rem !important
+  padding-bottom: 20px !important
+
+.pad-left-md
+  padding-left: 1.25rem !important
+  padding-left: 20px !important
+
+.pad-right-md
+  padding-right: 1.25rem !important
+  padding-right: 20px !important
+
+.pad-top-lg
+  padding-top: 1.875rem !important
+  padding-top: 30px !important
+
+.pad-bottom-lg
+  padding-bottom: 1.875rem !important
+  padding-bottom: 30px !important
+
+
+// Margin
+
+.mrg-none
+  margin: 0 !important
+
+.mrg-tb-none
+  margin-top: 0px !important
+  margin-bottom: 0px !important
+
+.mrg-lr-none
+  margin-left: 0px !important
+  margin-right: 0px !important
+
+.mrg-top-sm
+  margin-top: 0.625rem !important
+  margin-top: 10px !important
+
+.mrg-bottom-sm
+  margin-bottom: 0.625rem !important
+  margin-bottom: 10px !important
+
+.mrg-left-sm
+  margin-left: 0.625rem !important
+  margin-left: 10px !important
+
+.mrg-right-sm
+  margin-right: 0.625rem !important
+  margin-right: 10px !important
+
+.mrg-tb-sm
+  margin-top: 0.625rem
+  margin-top: 10px
+  margin-bottom: 0.625rem
+  margin-bottom: 10px
+
+.mrg-top-md
+  margin-top: 1.25rem !important
+  margin-top: 20px !important
+
+.mrg-bottom-md
+  margin-bottom: 1.25rem !important
+  margin-bottom: 20px !important
+
+.mrg-right-md
+  margin-left: 1.25rem !important
+  margin-left: 20px !important
+
+.mrg-right-md
+  margin-right: 1.25rem !important
+  margin-right: 20px !important
+
+.mrg-tb-md
+  margin-top: 1.25rem
+  margin-top: 20px
+  margin-bottom: 1.25rem
+  margin-bottom: 20px
+
+.mrg-top-lg
+  margin-top: 1.875rem !important
+  margin-top: 30px !important
+
+.mrg-bottom-lg
+  margin-bottom: 1.875rem !important
+  margin-bottom: 30px !important
+
+.mrg-tb-lg
+  margin-top: 1.875rem !important
+  margin-top: 30px !important
+  margin-bottom: 1.875rem !important
+  margin-bottom: 30px !important

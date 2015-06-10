@@ -1,0 +1,201 @@
+// ==========================================================================
+// Modals
+//
+// [1] Modal Body
+// [2] Modal Overlay
+// [3] Modal Dialog
+// [4] Modal Content
+// [5] Modal States
+// [6] Modal Close
+// [7] JS Initiated Class
+// ==========================================================================
+
+
+
+// [1] Modal Body
+// ==========================================================================
+
+.modal
+  +prefixer(backface-visibility, hidden)
+  +middle-center(fix)
+  width: 320px
+  max-width: 320px
+  height: 100%
+  visibility: hidden
+  overflow-x: scroll
+  z-index: z(modal)
+
+  +respond-to($mobile)
+    width: 100%
+    max-width: 100%
+
+
+// [2] Modal Overlay
+// ==========================================================================
+
+.modal-overlay
+  +transition(all 0.3s)
+  +position(fix)
+  width: 100%
+  height: 100%
+  visibility: hidden
+  top: 0
+  left: 0
+  z-index: z(overlay)
+  opacity: 0
+  overflow: hidden
+  background: $color__accent
+
+
+// [3] Modal Dialog
+// ==========================================================================
+
+.modal__dialog *
+  color: $white
+
+.modal__dialog
+  background: transparent
+  overflow: hidden
+
+.modal__dialog,
+.close-modal
+  +scale(0.8)
+  +transition(all 0.3s)
+  opacity: 0
+
+
+// [4] Modal Content
+// ==========================================================================
+
+.modal__content
+
+  h2,h3,h4,.modal__copy,.list li
+    @extend %text-shadow
+
+.modal__content h2
+  +font-size(70)
+
+.modal__content h3
+  +font-size(50)
+  +padding(10,0)
+
+.modal__content h4
+  +font-size(40)
+
+.modal__content .modal__copy,
+.modal__content .list
+  +font-size(20)
+  font-weight: $font__weight--light
+
+  +respond-to($tablet)
+    +font-size(18)
+
+.modal__content .modal__copy
+  +padding(14,0)
+
+.modal__content .list
+  +padding(0,0,0,5)
+
+.modal__content .list li
+  +padding(16,0,0,20)
+  position: relative
+
+  &:after
+    +font-size(12)
+    font-family: $fonts
+    content: "\e813"
+    position: absolute
+    top: 2.1rem
+    left: 0
+    display: block
+
+.modal__content .section
+  +padding(20,20)
+  width: inherit
+  position: relative
+
+  +respond-to($desktop)
+    +padding(20,60)
+
+  +respond-to($widescreen)
+    +padding(20,200)
+
+
+// [5] Modal States
+// ==========================================================================
+
+.modal--show
+  visibility: visible
+
+.modal--show ~ .modal-overlay
+  opacity: 1
+  visibility: visible
+
+.modal.modal--show .modal__dialog,
+.modal.modal--show .close-modal
+  +scale(1)
+  opacity: 1
+
+
+// [6] Modal Close
+// ==========================================================================
+
+.close-modal
+  +size(28px, 28px)
+  +circle(28px)
+  position: absolute
+  top: 20px
+  right: 20px
+  border: solid 1px $white
+  display: block
+  z-index: 9100
+  cursor: pointer
+  text-align: center
+  overflow: hidden
+
+  .icon-cancel
+    +font-size(24)
+    +middle-center
+    color: $white
+
+  +respond-to($tablet)
+    +size(48px, 48px)
+    +circle(48px)
+
+
+// [7] Modal Footer
+// ==========================================================================
+
+// .modal__footer
+//   +padding(10,0)
+//   +margin(0,0,20,0)
+//   width: inherit
+//   text-align: center
+//   overflow: hidden
+
+// .modal__footer > .close-modal
+//   +font-size(18)
+//   +padding(10,16)
+//   +radius(0)
+//   width: inherit
+//   height: auto
+//   position: relative
+//   top: 0
+//   right: 0
+//   border: solid 1px $white
+//   display: inline-block
+//   cursor: pointer
+
+
+// [7] JS Initiated Class
+//
+// Applied to <body>
+// ==========================================================================
+
+.fixed
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+

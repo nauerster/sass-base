@@ -1,0 +1,43 @@
+// ==========================================================================
+// Modules - Nav
+// ==========================================================================
+
+
+// Generic Inline Navigation
+// ==========================================================================
+
+.nav
+  overflow: visible
+
+  .nav__item
+    display: inline-block
+    padding: 0 rem(6)
+    white-space: nowrap
+
+    +respond-to($tablet)
+      padding: 0 rem(10)
+
+    &:last-child
+      padding-right: 0
+
+    .item__link
+      +font-size(20)
+      font-family: 'Roboto'
+      font-weight: $font__weight--thin
+      color: $color__primary
+      text-transform: uppercase
+      text-decoration: none
+      padding-bottom: rem(5)
+
+      &:hover
+        color: $color__primary--shaded
+
+      &.is-current
+        border-bottom: solid 2px $color__accent
+
+
+// Hover Transitions
+// ==========================================================================
+
+.item__link:hover
+  +transition(all 300ms linear)

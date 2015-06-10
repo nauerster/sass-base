@@ -1,0 +1,88 @@
+// ==========================================================================
+// Functions - Units
+// ==========================================================================
+
+
+// rem sizing
+
+@function rem-sizing($target-size) {
+
+  @return ($target-size / 10);
+
+}
+
+// px to rem
+// http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+
+@function rem($target, $context: $base__font--size) {
+
+  @if $target == 0 {
+    @return 0
+  }
+
+  @return $target / $context + 0rem;
+
+}
+
+// px to em conversion
+// http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+
+@function em($target, $context: $base__font--size) {
+
+  @if $target == 0 {
+    @return 0
+  }
+
+  @return $target / $context + 0em;
+
+}
+
+
+// em to px conversion
+// http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+
+@function px($target, $context: $base__font--size) {
+
+  @if $target == 0 {
+    @return 0
+  }
+
+  @return $target * $context + 0px;
+
+}
+
+// Aspect Ratio
+
+@function aspect-ratio($ratio-numerator, $ratio-denominator) {
+
+  @return (($ratio-denominator / $ratio-numerator) * 100%);
+
+}
+
+// Aspect Ratio
+// Based on Fixed Image Dimensions
+
+@function aspect-ratio-fixed($w, $h) {
+
+  @return ($h / $w) * 100%;
+
+}
+
+// Context Calculator
+
+@function context-calc($target, $context) {
+
+  @return ($target / $context) * 100%;
+
+}
+
+
+// Strip Unit Values
+//http://hugogiraudel.com/2013/08/12/sass-functions
+
+@function strip-unit($num) {
+
+    @return $num / ($num * 0 + 1);
+
+}
+

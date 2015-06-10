@@ -1,0 +1,201 @@
+// ==========================================================================
+// Helper Classes
+// ==========================================================================
+
+
+
+// Pseudo Constants
+// ==========================================================================
+
+%pseudos
+  content: ''
+  display: block
+  position: absolute
+
+
+// Allow words to break at arbitrary points
+// ==========================================================================
+
+%word-wrap
+  word-wrap: break-word
+
+
+// Throws the content off a users screen
+// ==========================================================================
+
+%text-offscreen
+  text-indent: -9999px
+  color: transparent
+
+
+// Default text shadow - provided a clean and subtle shadow in most cases.
+// ==========================================================================
+
+%text-shadow
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.2)
+
+
+// Shadows
+// ==========================================================================
+
+%z-depth-2
+  @extend %box-sizing
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)
+
+%btn-raised
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+
+
+// Removes any border radius
+// ==========================================================================
+
+%border-radius-none
+  +radius(0)
+  border: 0
+
+
+// Prevent background from drawing below the border
+// ==========================================================================
+
+%bg-clip
+  background-clip: padding-box
+
+
+// Include border & padding properties into the final width
+// and/or height of an element
+// ==========================================================================
+
+%box-sizing
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+
+// Capitalize everything
+// ==========================================================================
+
+%all-caps
+  font-weight: 600
+  text-transform: uppercase
+
+
+// Margin/Padding reset
+// ==========================================================================
+
+%mp-reset
+  margin: 0 !important
+  padding: 0 !important
+
+
+// Clearfix: contain floats
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    `contenteditable` attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that receive the `clearfix` class.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+// ==========================================================================
+
+%clearfix
+  *zoom: 1
+
+  &:before,
+  &:after
+    content: ''
+    display: table
+
+  &:after
+    clear: both
+
+
+// Background Images
+// Adjust background image size to fill parent element
+//
+// Used in bg-banner (mixin)
+//
+// background-size: cover (covers the entire element’s background area)
+// background-origin: value (specifies where the origin of the image will be)
+// ==========================================================================
+
+%bg-cover
+  background-size: cover
+
+
+// Image replacement
+// ==========================================================================
+
+%ir
+  +pseudo-el(before, 0, 150%)
+  background-color: transparent
+  border: 0
+  overflow: hidden
+  *text-indent: -9999px
+
+
+
+// Remove list defaults
+// ==========================================================================
+
+%list-reset
+  list-style: none
+  margin-top: 0
+  margin-left: 0
+  padding-left: 0
+
+
+// Absolute position any element
+// make sure container is [position: relative]
+// http://codepen.io/shshaw/full/gEiDt
+// ==========================================================================
+
+%absolute-center
+  width: 50%
+  height: 50%
+  overflow: auto
+  margin: auto
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+// ==========================================================================
+
+%hidden
+  display: none !important
+  visibility: hidden
+
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+// ==========================================================================
+
+%visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+  // extends the .visuallyhidden class to allow the element to be focusable
+  // when navigated to via the keyboard: h5bp.com/p
+
+  &.focusable:active,
+  &.focusable:focus
+    clip: auto
+    height: auto
+    margin: 0
+    overflow: visible
+    position: static
+    width: auto
+
+// hide visually and from screenreaders, but maintain layout
+
+%invisible
+  visibility: hidden

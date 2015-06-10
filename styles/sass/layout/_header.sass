@@ -1,0 +1,57 @@
+// ==========================================================================
+// Layout - Header
+// ==========================================================================
+
+
+
+.header
+  @extend %clearfix
+  width: $width__container--fluid
+  height: auto
+  +padding(20,0)
+
+  +respond-to($tablet)
+    +padding(20,0)
+
+
+.header__logo
+  width: 50%
+  margin: 0 auto
+
+  +respond-to($tablet)
+    width: 100%
+    max-width: 200px
+    vertical-align: middle
+
+
+// Anchor - Only present on mobile devices
+// ==========================================================================
+
+.anchor
+  +size(28px, 28px)
+  +circle(30px)
+  +transition(all 0.3s)
+  +scale(1)
+  @extend %z-depth-2
+  opacity: 1
+  position: absolute
+  top: 50%
+  right: rem(40)
+  margin-top: -14px
+  border: solid 1px $white
+  display: block
+  z-index: z(middle)
+  cursor: pointer
+  text-align: center
+  overflow: hidden
+  background: $color__background
+
+  .icon-arrow-down
+    +font-size(24)
+    +middle-center
+    color: $color__secondary
+
+  +respond-to($tablet)
+    +scale(0.8)
+    opacity: 0
+

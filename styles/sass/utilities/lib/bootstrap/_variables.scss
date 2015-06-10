@@ -1,0 +1,35 @@
+// ==========================================================================
+// Bootstrap Variables
+// ==========================================================================
+
+
+
+$line-height-base                             : 1.428571429 !default;
+
+$border-radius-large                          : 6px !default;
+
+$zindex-modal-background                      : 1040 !default;
+$zindex-modal                                 : 1050 !default;
+
+
+$modal-inner-padding                          : 20px !default;
+
+$modal-title-padding                          : 15px !default;
+$modal-title-line-height                      : $line-height-base !default;
+
+$modal-content-bg                             : #fff !default;
+$modal-content-border-color                   : rgba(0,0,0,.2) !default;
+$modal-content-fallback-border-color          : #999 !default;
+
+$modal-backdrop-bg                            : #000 !default;
+$modal-header-border-color                    : #e5e5e5 !default;
+$modal-footer-border-color                    : $modal-header-border-color !default;
+
+
+// Small screen / tablet
+// Note: Deprecated $screen-sm and $screen-tablet as of v3.0.1
+// ==========================================================================
+
+$screen-sm                                    : 768px !default;
+$screen-sm-min                                : $screen-sm !default;
+$screen-tablet                                : $screen-sm-min !default;

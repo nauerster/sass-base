@@ -1,0 +1,36 @@
+// ==========================================================================
+// Modules: Media
+// ==========================================================================
+
+
+
+// Defaults
+// ==========================================================================
+
+.img
+  max-width: 100%
+  height: auto
+  display: inline-block
+  *zoom: 1
+
+
+// Media Container
+// ==========================================================================
+
+.media
+  @extend %box-sizing
+  +size(auto,auto)
+  // overflow: auto
+  text-align: center
+
+  &--inline
+    display: inline-block
+    *display: inline
+    +padding(10,30,0,0)
+
+
+
+
+
+
+

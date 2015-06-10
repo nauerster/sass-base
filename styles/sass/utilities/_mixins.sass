@@ -1,0 +1,456 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+
+
+// SMACSS Theming
+// ==========================================================================
+//
+// Example:
+// .foobar {
+//   background: #ff3377
+//   +theme(theme-name)
+//     background: #663399
+//
+
+//=theme($name)
+  //@if $theme == $name
+    //@content
+
+
+
+// Media queries
+// ==========================================================================
+//
+// Allows you to pass inline media queries
+// Example:
+// .container
+//    width: 50%
+//    +respond-to($tablet-lg)
+//      width: 100%
+//
+
+=respond-to($media)
+  @media #{$media}
+    @content
+
+
+
+// Prefixer
+// ==========================================================================
+//
+// Works well with other mixins
+// @example
+//
+
+=prefixer($property, $value, $prefixes: webkit moz ms o)
+
+  @each $prefix in $prefixes
+    #{'-' + $prefix + '-' + $property}: $value
+
+  #{$property}: $value
+
+
+
+// IE Specific Styles
+// ==========================================================================
+//
+// Example:
+// .foobar
+//    &.lt-ie8
+//      +old-ie
+//         { ... }
+//
+
+//=old-ie
+  //@if $old-ie
+    //@content
+
+
+
+// Sizes
+// ==========================================================================
+//
+// Example:
+// .container
+//    +size(1024px, 500px)
+//
+
+=size($w, $h)
+  width: $w
+  height: $h
+
+
+// Fonts
+// ==========================================================================
+//
+// Example:
+// .container
+//    +font-size(18)
+//
+
+=font-size($font-size: $base__font--size)
+  +transition(all .2s ease-in-out)
+  font-size: ($font-size) + px
+  font-size: rem-sizing($font-size) + rem
+
+
+
+// Effects
+// ==========================================================================
+
+=transition($props)
+  +prefixer(transition, $props)
+  //property, duration, method (ex: width 2s linear)
+
+
+=translate($props)
+  +prefixer(transform, translate($props))
+
+
+=rotate($deg)
+  +prefixer(transform, rotate($deg))
+
+
+=box-shadow($props)
+  +prefixer(box-shadow, $props)
+
+
+=scale($val)
+  +prefixer(transform, scale($val))
+  // ex: +scale(2) scales the element 2x normal size
+
+
+
+// Layout
+// ==========================================================================
+
+//
+// Position:
+// Assign an element a position
+// Example:
+// .container
+//    +position(abs)
+//
+
+=position($position: 'rel')
+
+  @if $position == 'abs'
+    position: absolute
+
+  @else if $position == 'rel'
+    position: relative
+
+  @else if $position == 'fix'
+    position: fixed
+
+
+//
+// Location:
+// Assign an elements exact position
+// Example:
+// .container
+//    +location(topLeft, 10, 20)
+//
+
+=location($location, $vertical: auto, $horizontal: auto)
+
+  @if $location == 'topLeft'
+    top: $vertical + px
+    left: $horizontal + px
+
+  @else if $location == 'topRight'
+    top: $vertical + px
+    right: $horizontal + px
+
+  @else if $location == 'bottomLeft'
+    bottom: $vertical + px
+    left: $horizontal + px
+
+  @else if $location == 'bottomRight'
+    bottom: $vertical + px
+    right: $horizontal + px
+
+  @else if $location == 'all'
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+
+//
+// Middle Center
+// Perfectly center any element - as long as the parent it positioned relative
+// Example:
+// .container
+//    +middle-center
+//
+
+=middle-center($position: 'abs')
+  +position($position)
+  top: 50%
+  left: 50%
+  +prefixer(transform, translate(-50%, -50%))
+
+
+
+//
+// Grid Factory
+// Builds out a responsive grid system all based on percentages
+// Example:
+// .column
+//    +grid-factory(4, 2%)
+//
+
+=grid-factory($col-per-row, $margin)
+  width: ((100% - (($col-per-row - 1) * $margin)) / $col-per-row)
+  &:nth-child(n)
+    margin-right: $margin
+    margin-bottom: $margin
+  &:nth-child(#{$col-per-row}n)
+    margin-right: 0
+    margin-bottom: 0
+
+
+
+// Layout Helpers
+// ==========================================================================
+
+
+=inline-block($alignment: baseline)
+  display: inline-block
+
+  @if $alignment and $alignment != none
+    vertical-align: $alignment
+
+  //+old-ie
+    //zoom: 1
+    //*display: inline
+    //*vertical-align: auto
+
+
+// =padding($side, $amount: $base__padding-size)
+//   padding-#{$side}: ($amount) + px
+//   padding-#{$side}: rem-sizing($amount) + rem
+
+
+// Example:
+// .content__body
+//    +padding(20,40)
+//
+
+=padding($padding: $base__padding--size, $pad2: false, $pad3: false, $pad4: false)
+  @if $pad4
+    padding: ($padding) + px ($pad2) + px ($pad3) + px ($pad4) + px
+    padding: rem-sizing($padding) + rem rem-sizing($pad2) + rem rem-sizing($pad3) + rem rem-sizing($pad4) + rem
+  @else if $pad3
+    padding: ($padding) + px ($pad2) + px ($pad3) + px
+    padding: rem-sizing($padding) + rem rem-sizing($pad2) + rem rem-sizing($pad3) + rem
+  @else if $pad2
+    padding: ($padding) + px ($pad2) + px
+    padding: rem-sizing($padding) + rem rem-sizing($pad2) + rem
+  @else
+    padding: ($padding) + px
+    padding: rem-sizing($padding) + rem
+
+
+=margin($margin: $base__margin--size, $mrg2: false, $mrg3: false, $mrg4: false)
+  @if $mrg4
+    margin: ($margin) + px ($mrg2) + px ($mrg3) + px ($mrg4) + px
+    margin: rem-sizing($margin) + rem rem-sizing($mrg2) + rem rem-sizing($mrg3) + rem rem-sizing($mrg4) + rem
+  @else if $mrg3
+    margin: ($margin) + px ($mrg2) + px ($mrg3) + px
+    margin: rem-sizing($margin) + rem rem-sizing($mrg2) + rem rem-sizing($mrg3) + rem
+  @else if $mrg2
+    margin: ($margin) + px ($mrg2) + px
+    margin: rem-sizing($margin) + rem rem-sizing($mrg2) + rem
+  @else
+    margin: ($margin) + px
+    margin: rem-sizing($margin) + rem
+
+// Borders
+// ==========================================================================
+//
+// Example:
+// .container
+//    +border(solid 1 $color-border)
+//
+
+=border($properties)
+  border: $properties
+
+
+=border-active($position, $properties)
+  border-#{$position}: $properties
+
+
+=radius($size)
+  +prefixer(border-radius, $size)
+
+
+
+// Pseudo Factory
+// ==========================================================================
+//
+// Example:
+// .container
+//    +pseudo-el(after, 0, 0)
+//
+
+=pseudo-el($elem, $elemWidth: auto, $elemHeight: auto)
+
+  @if $elem == 'before' or $elem == 'after'
+    &:#{$elem}
+      @extend %pseudos
+      width: $elemWidth
+      height: $elemHeight
+      @content
+  @else
+    @error "#{$elem}" is not a valid pseudo-element
+
+
+
+// Shapes
+// ==========================================================================
+//
+// Example:
+// .container
+//    +circle(50)
+//
+
+=circle($size)
+  +radius($size / 2)
+
+
+//
+// Example:
+// .container
+//    +triangle(up, 12, $gray, 5)
+//
+
+=triangle($direction, $size, $clr, $offset: 3)
+
+  @if $direction == 'up'
+    border-right: $size solid transparent
+    border-bottom: $size * $ms-ratio solid $clr
+    border-left: $size solid transparent
+    top: -$size * $ms-ratio
+    left: 50% - $ms-ratio * $offset
+
+  @else if $direction == 'down'
+    border-top: $size * $ms-ratio solid $clr
+    border-right: $size solid transparent
+    border-left: $size solid transparent
+    bottom: -$size * $ms-ratio
+    left: 50% - $ms-ratio * $offset
+
+  @else if $direction == 'left'
+    border-top: $size solid transparent
+    border-right: $size * $ms-ratio solid $clr
+    border-bottom: $size solid transparent
+    left: -$size * $ms-ratio
+    top: 50% - $ms-ratio * $offset
+
+  @else if $direction == 'right'
+    border-top: $size solid transparent
+    border-bottom: $size solid transparent
+    border-left: $size * $ms-ratio solid $clr
+    right: -$size * $ms-ratio
+    top: 50% - $ms-ratio * $offset
+
+
+
+// Skins
+// ==========================================================================
+//
+// Customises your blocks or buttons with a different background color and/or
+// text color. If no text color is specified it will default to white.
+//
+
+=block-skin($clr)
+  border-color: shade($clr, 5%)
+  background-color: $clr
+
+
+=button-skin($clr, $bg)
+  +transition(all 300ms linear)
+  color: $clr
+  border-color: darken($bg, 5%)
+  background-color: $bg
+  &:hover
+    color: darken($clr, 5%)
+    border-color: darken($bg, 10%)
+    background-color: darken($bg, 5%)
+
+
+
+// Background Banners
+//
+// Revisit - no work
+// ==========================================================================
+
+=fullwidth-banner($origin: content-box, $position: center, $color: $color__background)
+  @extend %bg-cover
+  background-origin: $origin
+  background-position: $position
+  background-repeat: no-repeat
+  background-color: $color
+
+
+
+
+// Fullscreen Background for < IE8
+// ==========================================================================
+//
+// Example:
+// .foobar
+//    +fullscreen-bg
+//
+
+=fullscreen-bg($size, $position, $location)
+  +size(200%, 200%)
+  +position(fix)
+  top: -50%
+  left: -50%
+  //width: 200%
+  //height: 200%
+  img
+    +position(abs)
+    +location(all)
+    margin: auto
+    min-width: 50%
+    min-height: 50%
+
+
+
+// Opacity filter < IE7 Fallback
+// ==========================================================================
+//
+// Example:
+// .foobar
+//    +opacity(4)
+//
+
+=opacity($opacity)
+  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})")
+  opacity: $opacity
+
+  /* Hack IE6//
+  &.lt-ie7
+    filter : alpha(opacity=#{round($opacity * 100)})
+    zoom: 1
+
+
+
+// RGBA Fallback
+// ==========================================================================
+//
+// Example:
+// .foobar
+//    +rgba-bg(#F37, .9)
+//
+
+=rgba-bg($color, $percent)
+  background: $color
+  background: rgba($color, $percent)

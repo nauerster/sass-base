@@ -1,0 +1,105 @@
+// ==========================================================================
+// Layout: Content
+// ==========================================================================
+
+
+
+// Defaults
+//
+// Define shared patterns
+// ==========================================================================
+
+.section,
+.container,
+.row,
+.content,
+.cta
+  width: $width__container--fluid
+
+
+// Sections
+//
+// Defines major sections on a page - Think Vertical
+// ==========================================================================
+
+.section
+  @extend %clearfix
+  height: auto
+  position: relative
+  +padding(30,0)
+
+  +respond-to($tablet)
+    +padding(60,0)
+
+
+
+// Containers
+//
+// Contains all content for each section
+// ==========================================================================
+
+.container
+  @extend %box-sizing
+  max-width: $width__container
+  padding: 0
+  margin: 0 auto
+
+  &--sm
+    max-width: $width__container / 2
+
+
+
+// Rows
+//
+// Used inside of sections and/or containers, the row block provides
+// a clean break between content blocks
+// ==========================================================================
+
+.row
+  @extend %clearfix
+  height: auto
+  position: relative
+
+
+
+// Content
+//
+// Uses inside of sections and/or containers, the content block provides
+// padding between the parent and sibling elements. It will also prevent
+// the parent element from collapsing.
+// ==========================================================================
+
+.content
+  @extend %box-sizing
+  +padding(20)
+  overflow: auto
+  text-align: center
+
+
+// Content CTA's
+//
+// Uses inside of sections, containers, or content blocks.
+// Provides the necessary spacing between surrounding elements
+// ==========================================================================
+
+.cta
+  @extend %box-sizing
+  +padding(20,0)
+
+  +respond-to($tablet)
+    +padding(30,0)
+
+
+
+// Content Dividers
+// ==========================================================================
+
+.add-divider
+  padding-bottom: rem(20)
+  margin-bottom: rem(20)
+  position: relative
+  +pseudo-el(after, 25%, 1px)
+    left: 50%
+    bottom: 0
+    margin-left: -13%
+    background: $color__background--shaded

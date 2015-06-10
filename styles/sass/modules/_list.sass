@@ -1,0 +1,62 @@
+// ==========================================================================
+// List
+// ==========================================================================
+
+
+
+.list
+  width: auto
+  height: auto
+  position: relative
+  overflow: none
+
+.list__item
+  +font-size(0.875)
+  padding: 0.5rem 0
+
+
+// Make List Fluid
+// ==========================================================================
+
+.list--fluid
+  width: 100%
+  display: block
+
+
+// Remove List Styles
+// ==========================================================================
+
+.list--bare
+  @extend %list-reset
+
+
+// Inline Modifier
+// ==========================================================================
+
+.list--inline
+
+  .list__item
+    display: inline-block
+    float: left
+
+
+// Center List-Item Text
+// ==========================================================================
+
+.list--centered
+
+  .list__item
+    text-align: center
+
+
+// List-Inline - Item Dividers
+// ==========================================================================
+
+.list
+
+  .item__divider
+    padding-left: 0.75rem
+    border-left: solid 1px $color__border
+
+
+

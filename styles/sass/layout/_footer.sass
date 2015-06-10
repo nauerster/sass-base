@@ -1,0 +1,152 @@
+// ==========================================================================
+// Layout - Footer
+//
+// [1] Footer Layout
+// [2] Footer Logo
+// [3] Footer Badges
+// [4] Footer Links
+// ==========================================================================
+
+
+
+.footer *
+  color: $white
+
+.footer
+  @extend %clearfix
+  width: $width__container--fluid
+  height: auto
+  background-color: $color__primary
+
+.footer .row
+  +padding(50,0,0,0)
+
+  +respond-to($tablet)
+    +padding(50,0,40,0)
+
+.footer .col
+  text-align: center
+  +margin(0,0,20)
+
+  +respond-to($widescreen)
+    text-align: left
+    margin-right: 0 !important
+    margin-bottom: 0 !important
+
+
+// [2] Footer Logo
+// ==========================================================================
+
+.footer__logo,
+.copywrite
+  +respond-to($desktop)
+    display: inline-block
+    vertical-align: baseline
+
+.footer__logo
+  +font-size(40)
+  font-family: $font__logo
+
+  +respond-to($desktop)
+    +margin(0,12,0,0)
+
+.copywrite
+  +padding(0,0,20,0)
+  font-weight: $font__weight--light
+  color: $color__foreground
+
+// [3] Footer Badges
+// ==========================================================================
+
+.footer__badges
+  text-align: center
+  +padding(0,0,20,0)
+
+  +respond-to($tablet)
+    +padding(0)
+
+.footer__badges .badges__item,
+.footer__badges .badges__link
+  +size(28px, 28px)
+  display: inline-block
+  vertical-align: middle
+
+  +respond-to($tablet)
+    +size(48px, 48px)
+
+.footer__badges .badges__item
+  +margin(0,0,0,12)
+
+
+.footer__badges .badges__link
+  +circle(28px)
+  +transition(border-color .2s linear)
+  position: relative
+  background: transparent
+  border: solid 1px $color__foreground
+
+  +respond-to($tablet)
+    +circle(48px)
+
+.footer__badges .icon
+  +transition(color .2s linear)
+  +font-size(24)
+  +middle-center
+  color: $color__foreground
+
+.footer__badges .badges__link:hover
+  border-color: $white
+  .icon
+    color: $white
+
+.footer__badges .badges__item:nth-of-type(1)
+  +margin(0)
+
+
+// Mobile divider
+.footer__badges + .divider
+  background: $color__primary--tinted
+  display: block
+  margin-left: auto
+  margin-right: auto
+
+  +respond-to($tablet)
+    display: none
+
+// [4] Footer Nav
+// ==========================================================================
+
+
+.footer__nav
+  @extend %list-reset
+  width: auto
+  height: auto
+  position: relative
+  overflow: hidden
+
+  +respond-to($tablet)
+    +padding(24,0,0,0)
+
+.nav__item
+  +font-size(16)
+  +padding(30,0)
+  font-weight: $font__weight--normal
+  border-bottom: dashed 1px $color__primary--tinted
+
+  +respond-to($tablet)
+    font-weight: $font__weight--thin
+    display: inline-block
+    float: left
+    +margin(0,0,0,12)
+    +padding(0,0,0,12)
+    border-left: solid 2px $color__primary--tinted
+    border-bottom: none
+
+    &:nth-of-type(1)
+      +padding(0)
+      +margin(0)
+      border-left: none
+
+
+  &:nth-of-type(3)
+    border-bottom: none
