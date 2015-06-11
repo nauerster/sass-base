@@ -52,14 +52,14 @@ module.exports = function(grunt) {
     // Watches files for changes and runs tasks based on the changed files --> grunt watch
     watch: {
       css: {
-        files: ['styles/sass/**/*.{sass,scss}'],
+        files: ['sass/**/*.{sass,scss}'],
         tasks: ['sass:dev'],
         options: {
           spawn: false
         }
       },
       docs: {
-        files: ['styles/sass/**/*.{sass,scss}'],
+        files: ['sass/**/*.{sass,scss}'],
         tasks: ['sassdoc'],
         options: {
           spawn: false
@@ -70,12 +70,12 @@ module.exports = function(grunt) {
     // Deletes files and prevents duplication --> grunt clean
     clean: {
       dev: [
-        'styles/css/dev/*.css',
-        'styles/css/dev/*.map'
+        'css/dev/*.css',
+        'css/dev/*.map'
       ],
       prod: [
-        'styles/css/prod/*.css',
-        'styles/css/prod/*.map'
+        'css/prod/*.css',
+        'css/prod/*.map'
       ],
     },
 

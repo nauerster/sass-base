@@ -12,8 +12,30 @@
 // Contrast Ratio Tool: http://leaverou.github.io/contrast-ratio/
 // ==========================================================================
 
-// Establish color interval pattern
 
+
+
+// Slightly lighten a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function tint($color, $percentage) {
+
+  @return mix(white, $color, $percentage);
+
+}
+
+// Slightly darken a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function shade($color, $percentage) {
+
+  @return mix(black, $color, $percentage);
+
+}
 
 
 // Map core theme colors
@@ -27,27 +49,15 @@
 // }
 
 
-@function color-palette($color) {
+// @function color-palette($color) {
 
-  @if not map-has-key($color__theme, $color) {
-    @warn "No color found for `#{$color}` in $color-theme map. Property omitted."
-  }
+//   @if not map-has-key($color__theme, $color) {
+//     @warn "No color found for `#{$color}` in $color-theme map. Property omitted."
+//   }
 
-  @return map-get($color__theme, $color)
+//   @return map-get($color__theme, $color)
 
-}
-
-@function tint($color, $percentage) {
-
-  @return mix($color, white, $percentage);
-
-}
-
-@function shade($color, $percentage) {
-
-  @return mix($color, black, $percentage);
-
-}
+// }
 
 // // Map color levels
 // // ex: background-color: theme--level('primary', 2)

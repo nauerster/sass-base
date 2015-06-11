@@ -1,0 +1,32 @@
+{
+  "name": "sass-base",
+  "title": "Sass Base",
+  "description": "Sass starter toolkit",
+  "author": {
+    "name": "Eric Knauer",
+    "url": "https://github.com/nauerster"
+  },
+  "version": "0.1.0",
+  "license": {
+    "type": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nauerster/sass-base.git"
+  },
+  "homepage": "https://github.com/nauerster/sass-base",
+  "keywords": [
+    "sass",
+    "scss",
+    "doc",
+    "boilerplate",
+    "starter",
+    "bower",
+    "smacss",
+    "oocss"
+  ],
+  "dependencies": {
+    "animate-sass": "0.6.2"
+  }
+}

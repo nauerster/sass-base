@@ -41,7 +41,7 @@ $ git clone git@github.com:nauerster/sass-base.git
 * `git push origin {branch name}`: push committed files to repository
 * `git branch {new branch}`: creates a new working branch
 * `git checkout branch`: switches you to your new branch
-* `git merge {branch name}` : will merge changes from the specified branch into your current branch 
+* `git merge {branch name}` : will merge changes from the specified branch into your current branch
 
 ## Fire It Up
 Follow these instructions to fire up your `Sass Plate` after ensuring you have all dependencies listed above installed in your environment.
@@ -120,7 +120,7 @@ In general, the CSS file organization should follow something like this:
   |   |   + styles.sass                   # primary Sass file
   |   |   + _shame.sass                   # because hacks happen
   |
-  + node_modules/                         # repository for node modules 
+  + node_modules/                         # repository for node modules
   + bower.json                            # use to install third party dependencies
   + package.json                          # use to install grunt dependencies
   + Gruntfile.js                          # used to configure your grunt tasks
