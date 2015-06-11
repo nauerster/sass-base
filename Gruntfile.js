@@ -1,6 +1,5 @@
 'use strict';
 /*
-
     Grunt installation:
     -------------------
     npm install -g grunt-cli
@@ -30,7 +29,6 @@
     ** matches any number of characters, including /, as long as it's the only thing in a path part
     {} allows for a comma-separated list of "or" expressions
     ! at the beginning of a pattern will negate the match
-
 */
 
 module.exports = function(grunt) {
