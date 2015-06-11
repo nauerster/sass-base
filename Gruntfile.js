@@ -29,6 +29,7 @@
     ** matches any number of characters, including /, as long as it's the only thing in a path part
     {} allows for a comma-separated list of "or" expressions
     ! at the beginning of a pattern will negate the match
+
 */
 
 module.exports = function(grunt) {
@@ -81,19 +82,19 @@ module.exports = function(grunt) {
     sass: {                                                         // Task
       dev: {                                                        // Target
         options: {                                                  // Target options
-            style: 'expanded',                                      // Output
-            sourceMap: false
+          style: 'expanded',                                        // Output
+          sourceMap: false
         },
         files: {                                                    // Dictionary of files
-            'css/dev/theme.cisco.dev.css' : 'sass/styles.sass'      // 'destination': 'source'
+          'css/dev/theme.cisco.dev.css' : 'sass/styles.sass'        // 'destination': 'source'
         }
       },
       prod: {
         options: {
-            style: 'compressed'
+          style: 'compressed'
         },
         files: {
-            'css/prod/theme.cisco.css' : 'sass/styles.sass'
+          'css/prod/theme.cisco.css' : 'sass/styles.sass'
         }
       }
     },
@@ -113,10 +114,10 @@ module.exports = function(grunt) {
     imagemin: {
       dynamic: {
         files: [{
-            expand: true,
-            cwd: 'images/',
-            src: ['**/*.{png,jpg,gif}'],
-            dest: 'images/build/'
+          expand: true,
+          cwd: 'images/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'images/build/'
         }]
       }
     }
