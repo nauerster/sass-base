@@ -5,25 +5,38 @@
 # NPM Directory
 node_modules
 
-
 # Build Directory
 dist
-
 
 # Build Files
 .tmp
 .sass-cache
 
 # Bower Directory
-app/bower_components
+bower_components
 
-
-# OS or Editor folders
+#OS or Editor folders
 *.log
 .DS_Store
 Thumbs.db
 .cache
+*.sublime-project
+*.sublime-workspace
 
-# Misc
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+
+# Folders to ignore
 archive
+assets
 

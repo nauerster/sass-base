@@ -1,0 +1,44 @@
+{
+  "name": "sass-base",
+  "title": "Sass Base",
+  "description": "Sass starter toolkit",
+  "author": {
+    "name": "Eric Knauer",
+    "url": "https://github.com/nauerster"
+  },
+  "version": "0.1.0",
+  "license": {
+    "type": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nauerster/sass-base.git"
+  },
+  "homepage": "https://github.com/nauerster/sass-base",
+  "keywords": [
+    "sass",
+    "scss",
+    "doc",
+    "boilerplate",
+    "starter",
+    "grunt",
+    "smacss",
+    "oocss"
+  ],
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+      "http-proxy": "~1.11.0",
+      "lodash": "~0.9.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-imagemin": "~0.8.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-sassdoc": "^0.4.0"
+  }
+}
