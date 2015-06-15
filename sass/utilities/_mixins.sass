@@ -246,6 +246,11 @@
     *vertical-align: auto
 
 
+=padding-position($side, $amount: $base__padding-size)
+  padding-#{$side}: ($amount) + px
+  padding-#{$side}: rem-sizing($amount) + rem
+
+
 /// Padding
 /// @example sass
 ///   .content__body
@@ -265,6 +270,10 @@
     padding: ($padding) + px
     padding: rem-sizing($padding) + rem
 
+
+=margin-position($side, $amount: $base__margin-size)
+  margin-#{$side}: ($amount) + px
+  margin-#{$side}: rem-sizing($amount) + rem
 
 /// Margin
 /// @example sass
