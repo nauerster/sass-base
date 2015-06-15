@@ -34,10 +34,10 @@
 
 module.exports = function(grunt) {
 
-  // Load grunt tasks automatically
+  // Load grunt tasks automatically --> grunt task
   require('load-grunt-tasks')(grunt);
 
-  // Time how long tasks take. Can help when optimizing build times
+  // Time how long tasks take. Can help when optimizing build times --> grunt time
   require('time-grunt')(grunt);
 
 
@@ -76,6 +76,9 @@ module.exports = function(grunt) {
         'css/prod/*.css',
         'css/prod/*.map'
       ],
+      docs: [
+        'docs'
+      ]
     },
 
     // Configure sass --> grunt sass
@@ -131,6 +134,7 @@ module.exports = function(grunt) {
   // Run all dev task
   grunt.registerTask('serve', [
     'clean:dev',
+    'clean:docs',
     'watch'
   ]);
 

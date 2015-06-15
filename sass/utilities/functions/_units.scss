@@ -3,7 +3,13 @@
 // ==========================================================================
 
 
-// rem sizing
+
+/// rem sizing
+/// @access public
+/// @param {Number} $target-size - value divided by 10
+/// @return {Value}
+/// @example sass
+///   font-size: rem-sizing($font-size) + rem
 
 @function rem-sizing($target-size) {
 
@@ -11,8 +17,13 @@
 
 }
 
-// px to rem
-// http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+/// px to rem
+/// @link http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+/// @param {Number} $target - target-value divided by context
+/// @param {Number} $context - base font size
+/// @return {Number}
+/// @example sass
+///   padding: rem(100)
 
 @function rem($target, $context: $base__font--size) {
 
@@ -24,8 +35,13 @@
 
 }
 
-// px to em conversion
-// http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+/// px to em conversion
+/// @link http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+/// @param {Number} $target - target-value divided by context
+/// @param {Number} $context - base font size
+/// @return {Number}
+/// @example sass
+///   font-size: em(100)
 
 @function em($target, $context: $base__font--size) {
 
@@ -38,8 +54,12 @@
 }
 
 
-// em to px conversion
-// http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+/// em to px conversion
+/// @link http://www.pjmccormick.com/sweet-sass-function-convert-px-em
+/// @param {Number} $target - target-value multiplied by context
+/// @param {Number} $context - base font size
+/// @example sass
+///   font-size: px(100)
 
 @function px($target, $context: $base__font--size) {
 
@@ -51,7 +71,14 @@
 
 }
 
-// Aspect Ratio
+
+/// Aspect Ratio
+/// @param {number} $ratio-numerator - ratio numerator
+/// @param {number} $ratio-denominator - ratio denominator
+/// @example sass
+///   .foobar
+///     padding-bottom: aspect-ratio(16,9) // @returns 56.25%
+/// @returns {number}
 
 @function aspect-ratio($ratio-numerator, $ratio-denominator) {
 
@@ -59,8 +86,14 @@
 
 }
 
-// Aspect Ratio
-// Based on Fixed Image Dimensions
+
+/// Aspect Ratio - Based on Fixed Image Dimensions
+/// @param {number} $w - image width
+/// @param {number} $h - image height
+/// @example sass
+///   .foobar
+///     padding: 0 0 aspect-ratio-fixed(1080, 720) // @returns 66.666666666667%
+/// @returns {number}
 
 @function aspect-ratio-fixed($w, $h) {
 
@@ -68,7 +101,14 @@
 
 }
 
-// Context Calculator
+
+/// Context Calculator
+/// @param {number} $target
+/// @param {number} $context
+/// @example sass
+///   .foobar
+///     padding-bottom: context-calc(30,15)
+/// @returns {number}
 
 @function context-calc($target, $context) {
 
@@ -77,8 +117,14 @@
 }
 
 
-// Strip Unit Values
-//http://hugogiraudel.com/2013/08/12/sass-functions
+
+/// Strip Unit Values
+/// @link http://hugogiraudel.com/2013/08/12/sass-functions
+/// @param {string} $num
+/// @example sass
+///   .foobar
+///     padding-bottom: strip-unit(30px)
+/// @returns {number}
 
 @function strip-unit($num) {
 

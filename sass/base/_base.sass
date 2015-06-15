@@ -5,12 +5,29 @@
 
 
 
+// Set up a decent box model on the root element
+//
+// Make all elements from the DOM inherit from the parent box-sizing
+// Since `*` has a specificity of 0, it does not override the `html` value
+// making all elements inheriting from the root box-sizing value
+// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+// ==========================================================================
+
+html
+  @extend %box-sizing
+
+*, *::before, *::after
+  box-sizing: inherit
+
+
 // Defaults
 // ==========================================================================
 
 html,
 body
   background: $color__background
+  // Addresses a small issue in webkit: http://bit.ly/NEdoDq
+  -webkit-backface-visibility: hidden
 
 
 // Remove text-shadow in selection highlight:
@@ -83,3 +100,14 @@ textarea
 
 .screen-reader
   @extend %visuallyhidden
+
+
+// Animate.css Specifics
+// ==========================================================================
+
+.animated
+  @include animate-prefixer(animation-duration, $base-duration)
+  @include animate-prefixer(animation-fill-mode, both)
+
+  &.hinge
+    @include animate-prefixer(animation-duration, $base-duration * 2)

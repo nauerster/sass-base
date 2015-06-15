@@ -4,19 +4,26 @@
 
 
 
-// Calculate the percentage width of a given element
-// http://www.sitepoint.com/8-tips-help-get-best-sass/
-// ex: .col-span-2 { width: calculate-width(2); } width = 50%
-// ex: .col-span-3 { width: calculate-width(3); } width = 33.3%
+/// Calculate the percentage width of a given element
+/// @link http://www.sitepoint.com/8-tips-help-get-best-sass/
+/// @param {Number} $col-span - number of desired columns
+/// @return {Percent} column width
+/// @example sass
+///   .col-span-2
+///     width: calculate-width(2) // width = 50%
 
 @function calculate-width($col-span) {
   @return 100% / $col-span
 }
 
 
-// Map pre-defined z-index values
-// http://www.sitepoint.com/better-solution-managing-z-index-sass/
-// ex: .modal {z-index: z(modal)} z-index = 9000
+/// Map pre-defined z-index values
+/// @link http://www.sitepoint.com/better-solution-managing-z-index-sass/
+/// @param {Number} $layer - mapper value
+/// @param {Array} $zindex - mapper key
+/// @example sass
+///   .modal
+///     z-index: z(modal) // z-index = 9000
 
 @function z($layer) {
 

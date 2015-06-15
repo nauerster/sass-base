@@ -14,23 +14,26 @@
 
 
 
+/// Slightly lighten a color
+/// @param {Number} $color - color to tint
+/// @param {Percent} $percentage - percentage to tint
+/// @return {Color}
+/// @example
+///   $color__primary--tinted   : tint($color__primary, 10%)
 
-// Slightly lighten a color
-// @access public
-// @param {Color} $color - color to tint
-// @param {Number} $percentage - percentage of `$color` in returned color
-// @return {Color}
 @function tint($color, $percentage) {
 
   @return mix(white, $color, $percentage);
 
 }
 
-// Slightly darken a color
-// @access public
-// @param {Color} $color - color to tint
-// @param {Number} $percentage - percentage of `$color` in returned color
-// @return {Color}
+/// Slightly darken a color
+/// @param {Number} $color - color to shade
+/// @param {Percent} $percentage - percentage to shade
+/// @return {Color}
+/// @example
+///   $color__primary--shaded   : shade($color__primary, 10%)
+
 @function shade($color, $percentage) {
 
   @return mix(black, $color, $percentage);
@@ -38,65 +41,18 @@
 }
 
 
-// Map core theme colors
-//scotch.io/tutorials/aesthetic-sass-2-colors
-// ex: $color__button: color-palette('primary')
+/// Map core theme colors
+/// @link scotch.io/tutorials/aesthetic-sass-2-colors
+/// @param {Color} $key - color to map
+/// @param {Mapper} $color-theme - the mapper object
+/// @example
+///   $color__theme   : (primary: #424446, accent: #FFAC5B)
 
-// @function color-palette($key: primary) {
+@function color-palette($key: primary) {
 
-//   @return map-get($color-theme, $key);
+  @return map-get($color-theme, $key);
 
-// }
-
-
-// @function color-palette($color) {
-
-//   @if not map-has-key($color__theme, $color) {
-//     @warn "No color found for `#{$color}` in $color-theme map. Property omitted."
-//   }
-
-//   @return map-get($color__theme, $color)
-
-// }
-
-// // Map color levels
-// // ex: background-color: theme--level('primary', 2)
-
-// @function color-palette-level($color-name: 'primary', $level: 0) {
-
-//   $color: color-palette($color-name);
-//   $color-base: if($level < 0, black, white);
-
-//   @return mix($color-base, $color, $level * $color-interval);
-
-// }
-
-// // Aggregate opacity and transparency levels
-// // ex: $color__button--transparent: color-palette-alpha('primary', 'light')
-
-// @function color-palette-alpha($name: 'primary', $opacity: 0) {
-
-//   $color: color-palette($name);
-
-//   // Get the named opacity level, if it exists
-//   @if map-key-exists($color-opacity, $opacity) {
-//     $opacity: map-get($color-opacity, $opacity)
-//   }
-
-//   // Use rgba() to manipulate the color's alpha level
-//   @return rgba($color, $opacity);
-
-// }
-
-// // Aggregate contrast and accessibilty levels
-// // Returns either a dark or light foreground color, given
-// // the background color
-
-// @function color-palette-foreground($color-bg, $threshold: .65) {
-
-//   @return if(lightness($color-bg) >= $threshold, $color-dark, $color-light);
-
-// }
+}
 
 
 
