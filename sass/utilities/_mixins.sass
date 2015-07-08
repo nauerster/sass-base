@@ -15,6 +15,7 @@
 // [12] Shapes
 // [13] Skins
 // [14] Background Images
+// [15] Opacity & Colors
 // ==========================================================================
 
 
@@ -449,6 +450,19 @@
 
 // [15] Opacity & Colors
 // ==========================================================================
+
+
+/// Semi-Transparent Colors
+/// @example:
+///   .foobar
+///     +alpha-attr('background-color', rgba(black, 0.3) white)
+
+=alpha-attr($attr, $color, $bg)
+  $percent: alpha($color) * 100%
+  $opaque: opacify($color, 1)
+  $color__solid: mix($opaque, $bg, $percent)
+  #{$attr}: $color__solid
+  #{$attr}: $color
 
 
 /// Opacity filter < IE7 Fallback

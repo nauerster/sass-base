@@ -57,13 +57,13 @@ module.exports = function(grunt) {
           spawn: false
         }
       },
-      docs: {
-        files: ['sass/**/*.{sass,scss}'],
-        tasks: ['sassdoc'],
-        options: {
-          spawn: false
-        }
-      }
+      // docs: {
+      //   files: ['sass/**/*.{sass,scss}'],
+      //   tasks: ['sassdoc'],
+      //   options: {
+      //     spawn: false
+      //   }
+      // }
     },
 
     // Deletes files and prevents duplication --> grunt clean
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
           sourceMap: false
         },
         files: {                                                    // Dictionary of files
-          'css/dev/theme.cisco.dev.css' : 'sass/styles.sass'        // 'destination': 'source'
+          'css/dev/theme.dev.css' : 'sass/styles.sass'              // 'destination': 'source'
         }
       },
       prod: {
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          'css/prod/theme.cisco.css' : 'sass/styles.sass'
+          'css/prod/theme.prod.css' : 'sass/styles.sass'
         }
       }
     },
