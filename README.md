@@ -56,7 +56,7 @@ Follow these instructions to fire up your `Sass Plate` after ensuring you have a
 
 
 ## Documentation
-Using [SassDoc](http://http://sassdoc.com/), you can parses your source folder to grab documentation-specific comments. From there, it builds a data tree, that gets enhanced and filtered before being passed to the view.
+Using [SassDoc](http://http://sassdoc.com/), you can parse your source folder to grab documentation-specific comments. From there, it builds a data tree, that gets enhanced and filtered before being passed to the view.
 
 1. In Terminal/Command-line, simply run 'grunt sassdoc' at the root of your project directory.
 
