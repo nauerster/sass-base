@@ -8,7 +8,8 @@ Based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with
 
 1. [Getting Started](#getting-started)
 2. [Fire It Up](#fire-it-up)
-3. [File Organization](#file-organization)
+3. [Documentation](#documentation)
+4. [File Organization](#file-organization)
 
 ## Getting Started
 
@@ -46,12 +47,19 @@ $ git clone git@github.com:nauerster/sass-base.git
 ## Fire It Up
 Follow these instructions to fire up your `Sass Plate` after ensuring you have all dependencies listed above installed in your environment.
 
-1. In terminal/Command line, navigate to the root directory (where Gruntfile.js is located)
+1. In Terminal/Command-line, navigate to the root directory (where Gruntfile.js is located)
   * Install Node Modules: `npm install`
 
 2. In the same directory run the following command
   * `grunt serve`: css file will be output into the dev folder. The watch task will continue to run until you quit it `(ctrl + c)`.
   * `grunt build`: will run all the same dev tasks, but will compress our css file for final release.
+
+
+## Documentation
+Using [SassDoc](http://http://sassdoc.com/), you can parses your source folder to grab documentation-specific comments. From there, it builds a data tree, that gets enhanced and filtered before being passed to the view.
+
+1. In Terminal/Command-line, simply run 'grunt sassdoc' at the root of your project directory.
+
 
 
 

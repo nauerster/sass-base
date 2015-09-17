@@ -5,30 +5,40 @@
     npm install -g grunt-cli
     npm install -g grunt-init
     npm init (creates a `package.json` file)
+
     Simple Dependency Install:
     --------------------------
     npm install (from the same root directory as the `package.json` file
+
     Install/Update Plugin :
     --------------------------
     npm install [plugin-name] --save-dev
+
     UnInstall Plugins:
     --------------------------
     npm uninstall [plugin-name] --save-dev
+
     Tasks:
     --------------------------
     grunt (default is to watch both sass and coffeescript files)
     grunt sass (compile once)
     grunt watch (you can also explicitly call the watch task)
+
     All commands are detailed by running the following:
     --------------------------
     grunt --help
-    Globbing Patterns
+
+    Globbing Patterns:
     --------------------------
     * matches any number of characters, but not /
     ? matches a single character, but not /
     ** matches any number of characters, including /, as long as it's the only thing in a path part
     {} allows for a comma-separated list of "or" expressions
     ! at the beginning of a pattern will negate the match
+
+    Prefixes:
+    --------------------------
+    cwd: current working directory
 
 */
 
