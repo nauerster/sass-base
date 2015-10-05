@@ -1,14 +1,26 @@
 // ==========================================================================
 // Layout: Content
+//
+// [1] Default
+// [2] Shell
+// [3] Section's
+// [4] Container's
+// [5] Rows
+// [6] Content
+// [7] Group's
+// [8] CTA's
+// [9] Dividers
+// [10] Positioning
 // ==========================================================================
 
 
 
-// Defaults
+// [1] Defaults
 //
 // Define shared patterns
 // ==========================================================================
 
+.shell,
 .section,
 .container,
 .row,
@@ -17,7 +29,17 @@
   width: $width__container--fluid
 
 
-// Sections
+// [2] Shell
+//
+// Application Shell
+// ==========================================================================
+
+.shell
+  @extend %box-sizing
+  height: auto
+
+
+// [3] Sections
 //
 // Defines major sections on a page - Think Vertical
 // ==========================================================================
@@ -33,7 +55,7 @@
 
 
 
-// Containers
+// [4] Containers
 //
 // Contains all content for each section
 // ==========================================================================
@@ -49,7 +71,7 @@
 
 
 
-// Rows
+// [5] Rows
 //
 // Used inside of sections and/or containers, the row block provides
 // a clean break between content blocks
@@ -62,9 +84,9 @@
 
 
 
-// Content
+// [6] Content
 //
-// Uses inside of sections and/or containers, the content block provides
+// Use inside of sections and/or containers, the content block provides
 // padding between the parent and sibling elements. It will also prevent
 // the parent element from collapsing.
 // ==========================================================================
@@ -73,12 +95,24 @@
   @extend %box-sizing
   +padding(20)
   overflow: auto
-  text-align: center
 
 
-// Content CTA's
+
+// [7] Group's
+// ==========================================================================
+.group
+  @extend %box-sizing
+  +padding(20)
+
+  &--inline *
+    display: inline-block
+    float: left
+
+
+
+// [8] Content CTA's
 //
-// Uses inside of sections, containers, or content blocks.
+// Use inside of sections, containers, or content blocks.
 // Provides the necessary spacing between surrounding elements
 // ==========================================================================
 
@@ -91,15 +125,63 @@
 
 
 
-// Content Dividers
+// [9] Content Dividers
 // ==========================================================================
 
+// .add-divider
+//   padding-bottom: rem(20)
+//   margin-bottom: rem(20)
+//   position: relative
+//   +pseudo-el(after, 25%, 1px)
+//     left: 50%
+//     bottom: 0
+//     margin-left: -13%
+//     background: $color__background--shaded
+
+
 .add-divider
-  padding-bottom: rem(20)
-  margin-bottom: rem(20)
   position: relative
-  +pseudo-el(after, 25%, 1px)
-    left: 50%
+
+  &--left:before,
+  &--right:after,
+  &--top:before,
+  &--bottom:before
+
+    @extend %pseudos
+    background-color: $color__border
+
+  &--left:before,
+  &--right:after
+
+    +size(1px, 70%)
+    top: 15%
+
+  &--left:before
+
+    left: 0
+
+  &--right:after
+
+    right: 0
+
+  &--top:before,
+  &--bottom:before
+
+    +size(70%, 1px)
+    left: 15%
+
+  &--top:before
+
+    top: 0
+
+  &--bottom:before
+
     bottom: 0
-    margin-left: -13%
-    background: $color__background--shaded
+
+
+
+// [10] Positioning
+// ==========================================================================
+
+[data-position="rel"]
+  position: relative
