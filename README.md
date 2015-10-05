@@ -87,7 +87,7 @@ In general, the CSS file organization should follow something like this:
   |   |   |-- _footer.sass                # global footer
   |   |   |-- _variables.sass             #
   |   |
-  |   | + modules/                        # minor components, e.g., buttons, widgets etc.
+  |   | + components/                     # minor components, e.g., buttons, widgets etc.
   |   |   |-- _index.sass                 # imports for all modules
   |   |   |-- _modal.sass                 # modal styles
   |   |   |-- _button.sass                # default build decorator
