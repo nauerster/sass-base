@@ -16,6 +16,7 @@
 // [13] Skins
 // [14] Background Images
 // [15] Opacity & Colors
+// [16] Card Depths
 // ==========================================================================
 
 
@@ -245,6 +246,17 @@
     zoom: 1
     *display: inline
     *vertical-align: auto
+
+
+/// Vertical Center
+/// @example sass
+///   .dropdown span, dropdown span i
+///     +vertical-center(40px)
+
+=vertical-center($alignment, $height)
+  height: $height
+  line-height: $height
+  +inline-block(middle)
 
 
 =padding-position($side, $amount: $base__padding-size)
@@ -489,3 +501,23 @@
 =rgba-bg($color, $percent)
   background: $color
   background: rgba($color, $percent)
+
+
+
+// [16] Card Depths
+// ==========================================================================
+
+/// Gives a card depth effect.
+/// @param {Number} $depth - depth level (between 1 and 5)
+/// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+/// @link https://css-tricks.com/snippets/sass/material-shadows-mixin/
+/// @requires {function} top-shadow
+/// @requires {function} bottom-shadow
+
+=card-depth($depth)
+  @if $depth < 1
+    box-shadow: none
+  @else if $depth > 5
+    @warn "Invalid $depth `#{$depth}` for mixin `card`."
+  @else
+    box-shadow: bottom-shadow($depth), top-shadow($depth)

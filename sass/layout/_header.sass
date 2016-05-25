@@ -1,8 +1,15 @@
 // ==========================================================================
 // Layout - Header
+//
+// [1] Base
+// [2] Align Header Text
+// [2] Anchor
 // ==========================================================================
 
 
+
+// [1] Base
+// ==========================================================================
 
 .header
   @extend %clearfix
@@ -22,6 +29,31 @@
     width: 100%
     max-width: 200px
     vertical-align: middle
+
+
+// [2] Align Header Text
+// ==========================================================================
+
+
+.header::after
+  content: ''
+  display: inline-block
+  width: 100%
+
+.header .header__wrapper,
+.header .header__wrapper::before,
+.header .header__wrapper > *
+  display: inline-block
+  vertical-align: middle
+  text-align: left
+
+.header .header__wrapper,
+.header .header__wrapper::before
+  height: 100%
+
+.header .header__wrapper::before
+  content: ''
+
 
 
 // Anchor - Only present on mobile devices

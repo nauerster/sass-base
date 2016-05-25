@@ -35,18 +35,21 @@ html
     font-size: 72%
 
 
-// Titles, Headlines, and Headings
+// Intro, Titles, Headlines, and Headings
+// Font sizes are converted to rem values (i.e., 70px = 4.375rem)
 // ==========================================================================
 
 h1,h2,h3,h4,h5,h6,p
   line-height: $base__line-height
 
-
-.title
+.intro
   +font-size(70)
 
-.heading
+.title
   +font-size(50)
+
+.heading
+  +font-size(40)
 
 .heading--secondary
   +font-size(30)
@@ -62,7 +65,7 @@ h1,h2,h3,h4,h5,h6,p
 // Emphasize Text
 // ==========================================================================
 
-.inominate
+.branding
   font-family: $font__logo
 
 .callout
@@ -90,7 +93,7 @@ h1,h2,h3,h4,h5,h6,p
 // ==========================================================================
 
 small,
-.subcopy
+.subheading
   font-size: 65%
 
 
@@ -139,3 +142,31 @@ small,
 
   &--lg
     +font-size(24)
+
+
+// Icon Types
+
+.icon.fa
+  font-family: 'FontAwesome'
+
+.icon.ionic
+
+  font-family: 'Ionicons'
+
+
+// Input Placeholders
+// ==========================================================================
+
+\::-webkit-input-placeholder
+  color: $color__input
+
+\:-ms-input-placeholder
+  color: $color__input
+
+\::-moz-placeholder
+  color: $color__input
+  opacity: 1
+
+\:-moz-placeholder
+  color: $color__input
+  opacity: 1
