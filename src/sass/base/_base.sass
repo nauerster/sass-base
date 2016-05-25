@@ -10,7 +10,7 @@
 // Make all elements from the DOM inherit from the parent box-sizing
 // Since `*` has a specificity of 0, it does not override the `html` value
 // making all elements inheriting from the root box-sizing value
-// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+// @link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 // ==========================================================================
 
 html
@@ -29,9 +29,12 @@ body
   // Addresses a small issue in webkit: http://bit.ly/NEdoDq
   -webkit-backface-visibility: hidden
 
+body
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizeLegibility
 
 // Remove text-shadow in selection highlight:
-// https://twitter.com/miketaylr/status/12228805301
+// @link https://twitter.com/miketaylr/status/12228805301
 //
 // These selection rule sets have to be separate.
 // Customize the background color to match your design.
@@ -56,7 +59,7 @@ hr
 
 // Remove the gap between audio, canvas, iframes,
 // images, videos and the bottom of their containers:
-// https://github.com/h5bp/html5-boilerplate/issues/440
+// @link https://github.com/h5bp/html5-boilerplate/issues/440
 // ==========================================================================
 
 audio,
@@ -83,6 +86,21 @@ fieldset
 
 textarea
   resize: vertical
+
+
+// Allow images to be responsive by default.
+// ==========================================================================
+
+img
+  height: auto
+  max-width: 100%
+
+
+// Create a smooth color transition by default.
+// ==========================================================================
+
+a
+  +transition(color 300ms linear)
 
 
 // Browser Upgrade Prompt

@@ -1,5 +1,12 @@
 //! normalize.css v3.0.1 | MIT License | git.io/normalize
 
+
+// Set to true if you want to add support for IE6 and IE7
+// Notice: setting to true might render some elements
+// slightly differently than when set to false
+$legacy_support_for_ie: false !default; // Used also in Compass
+
+
 // 1. Set default font family to sans-serif.
 // 2. Prevent iOS text size adjust after orientation change, without disabling
 //    user zoom.
@@ -71,20 +78,33 @@ template
   display: none
 
 
-// Links
-// Remove the gray background color from active links in IE 10.
 // =========================================================================
+// Links
+// =========================================================================
+
+// 1. Remove the gray background color from active links in IE 10.
+// 2. Addresses outline displayed oddly in Chrome
+// 3. Improves readability when focused and also mouse hovered in all browsers
+//    people.opera.com/patrickl/experiments/keyboard/test
+
+
 
 a
+
+  // 1
+
   background: transparent
 
+  // 2
 
-// Improve readability when focused and also mouse hovered in all browsers.
-// =========================================================================
+  &:focus
+    outline: thin dotted
 
-a:active,
-a:hover
-  outline: 0
+  // 3
+
+  &:active,
+  &:hover
+    outline: 0
 
 
 // Text-level semantics
@@ -199,6 +219,37 @@ pre,
 samp
   font-family: monospace, monospace
   font-size: 1em
+
+
+// Improves readability of pre-formatted text in all browsers
+// =========================================================================
+
+pre
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+
+
+// Set consistent quote types.
+// =========================================================================
+
+q
+  quotes: "\201C" "\201D" "\2018" "\2019"
+
+// 1. Addresses CSS quotes not supported in IE6/7
+// 2. Addresses quote property not supported in S4
+
+// 1
+@if $legacy_support_for_ie
+  q
+    quotes: none
+
+// 2
+q
+  &:before,
+  &:after
+    content: ''
+    content: none
 
 
 // Forms

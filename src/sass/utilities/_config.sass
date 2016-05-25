@@ -1,0 +1,111 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+
+// CSS Debugging
+//
+// Toggle layout debugging with CSS Pesticide.
+//
+// $pesticide-debug-outline - {boolean} adds outlines to all elements.
+// $pesticide-debug-depth - {boolean} adds shadows to all elements.
+// @source - http://pesticide.io/
+
+$pesticide-debug-outline					: false
+$pesticide-debug-depth						: false
+
+
+/// Animate CSS Library
+/// @link https://github.com/tgdev/animate-sass
+/// @type boolean
+// ==========================================================================
+// Activate Modules Needed
+// Additional option can be found under:
+// bower_components/animate-sass/helpers/_settings.scss
+
+$use-fadeInUp                     : true
+$use-fadeIn                       : true
+
+
+/// Define width for browsers w/out media query support
+/// @link http://jakearchibald.github.com/sass-ie/
+/// @type boolean
+// ==========================================================================
+
+$fix-mqs                         	: false !default
+
+
+/// Turn on/off IE specific styles
+/// @link http://jakearchibald.github.com/sass-ie/
+/// @type boolean
+// ==========================================================================
+
+$old-ie                           : false !default
+
+
+
+// Modular Scale
+// ==========================================================================
+
+/// Modular Scale | A list of values that share the same relationship
+/// @link https://github.com/modularscale/modularscale-sass
+/// @type number
+
+$ms-base                           : 1em
+$ms-ratio                          : 1.618
+
+
+
+/// Base margin and padding sizes
+/// @type number
+// ==========================================================================
+
+$base__padding--size               : 20
+$base__margin--size                : 20
+
+
+
+// Constants
+// ==========================================================================
+/// (optional) Define images path
+/// @type string
+
+$image-path                        : '../images/'
+
+
+
+// Media Break Points:
+//
+// subtractive css (max-width) apply styles if <= value
+// additive css (min-width) apply styles if >= value
+// ==========================================================================
+
+$mobile-sm                         : '(min-width: 240px)'
+$mobile-lg                         : '(min-width: 320px)'
+$tablet-sm                         : '(min-width: 480px)'
+$tablet-lg                         : '(min-width: 768px)'
+$desktop                           : '(min-width: 1024px)'
+$widescreen                        : '(min-width: 1280px)'
+
+
+
+// z-index References:
+// ==========================================================================
+
+/// Define z-indexes for various elements
+/// @link http://www.sitepoint.com/using-sass-maps/
+/// @type number
+
+$zindex: (
+	modal 													 : 9000, 
+	overlay 												 : 8000, 
+	dropdown 												 : 7000, 
+	tooltip 												 : 6000, 
+	header 													 : 5000, 
+	footer 													 : 4000, 
+	top 														 : 3000, 
+	middle          								 : 2000, 
+	bottom          								 : 1000,
+	default 												 : 1,
+	under 													 : -1000
+)
