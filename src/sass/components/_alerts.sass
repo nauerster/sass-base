@@ -1,0 +1,97 @@
+// ==========================================================================
+// Alerts
+//
+// [1] Alert Structure
+// [2] Base Build
+// [3] Sizes
+// [4] Colors
+// [5] Types
+// [6] States
+// ==========================================================================
+
+
+// Variables
+// ==========================================================================
+
+
+
+// [1] Structure the alert
+// ==========================================================================
+
+%alert
+  width: 100%
+  max-width: 100%
+  height: auto
+  font-weight: 400
+  position: absolute
+  text-align: center
+  vertical-align: middle
+
+
+
+// [2] Build alert base
+// ==========================================================================
+
+.alert
+  @extend %alert
+  @extend %box-sizing
+  +font-size(14)
+  +padding(10, 0)
+
+
+// [3] Sizes
+// ==========================================================================
+
+
+
+// [4] Colors
+// ==========================================================================
+
+.alert
+
+  &--success
+    +alert-skin($color__success)
+
+  &--info
+    +alert-skin($color__info)
+
+  &--warning
+    +alert-skin($color__warning)
+
+  &--danger
+    +alert-skin($color__danger)
+
+  &--inverse
+    +alert-skin($color__disabled)
+
+
+
+// [5] Types
+// ==========================================================================
+
+  &--inline
+    position: relative
+    display: inline-block
+
+  &--banner
+    //+prefixer(transform, scale(1,0))
+    //+transition(transform ease 250ms)
+    top: 0
+    left: 0
+    opacity: 0
+    z-index: z(top)
+    border-bottom: solid 1px transparent
+
+
+
+// [6] States
+// ==========================================================================
+
+.alert--banner.alert--true
+  //+prefixer(transform, scale(1,1))
+  opacity: 1
+
+
+
+
+

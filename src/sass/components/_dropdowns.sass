@@ -1,0 +1,125 @@
+// ==========================================================================
+// Dropdowns
+//
+// [1] Variables
+// [2] Structure
+// [3] Sections
+// ==========================================================================
+
+
+// [1] Variables & Mixins
+// ==========================================================================
+
+$width__dropdown              : 100% !default
+$height__dropdown             : 40px !default
+
+$color__placeholder           : #777777
+
+
+
+// [2] Structure
+// ==========================================================================
+
+// Directive element
+tb-dropdown
+  @extend %clearfix
+  width: $width__dropdown
+  display: block
+
+.dropdown-select
+  width: $width__dropdown
+
+.dropdown-select__display
+  @extend %box-sizing
+  width: $width__dropdown
+  position: relative
+  background: #FFF
+  cursor: pointer
+  border: solid 1px $color__border
+
+  .placeholder,
+  .icon
+    vertical-align: middle
+    color: $color__placeholder
+
+  .placeholder
+    @extend %box-sizing
+    +font-size(14)
+    width: $width__dropdown
+    padding: 0.8rem 0
+    text-indent: 0.3125rem
+    vertical-align: middle
+    position: relative
+    font-family: 'Roboto'
+
+  .icon
+    width: 14px
+    position: absolute
+    top: 1rem
+    right: 10px
+    font-size: 1.125em
+
+// Start list styles
+
+.dropdown__list
+  +prefixer(transform, scale(1,0))
+  +transition(transform ease 250ms)
+  width: $width__dropdown
+  position: relative
+
+.list__display
+  position: absolute
+  width: $width__dropdown
+  z-index: z(top)
+  cursor: pointer
+  background: $white
+
+.list__item
+  @extend %box-sizing
+  width: $width__dropdown
+  position: relative
+  border: solid 1px $color__border
+  border-top: none
+  padding: 0
+
+  &:hover
+    background: $color__foreground--tinted
+
+  &.selected
+    +rgba-bg($color__accent, .9)
+
+  .item__value,
+  .icon
+    vertical-align: middle
+    color: $color__placeholder
+
+  .item__value
+    +font-size(14)
+    @extend %box-sizing
+    width: $width__dropdown
+    position: relative
+    padding: 1rem 0
+    text-indent: 0.3125rem
+    vertical-align: middle
+
+
+  .icon
+    width: 20px
+    position: absolute
+    top: 1.2rem
+    right: 7px
+    display: none
+
+  // when selected
+  &.selected
+
+    .item__value,
+    .icon
+      color: $white
+
+    .icon
+      display: inline-block
+
+// Is Clicked
+.dropdown-select.show .dropdown__list
+  +prefixer(transform, scale(1,1))
