@@ -25,8 +25,9 @@
 // ==========================================================================
 
 /// SMACSS Theming
+/// @group Mixins
 /// @param {String} $name - theme name
-/// @example sass - Basic usage
+/// @example sass - Usage - Basic usage
 ///   .foobar
 ///     background: $color__background
 ///     +theme(foo)
@@ -42,9 +43,10 @@
 // ==========================================================================
 
 /// Media Querues - Allows you to pass inline media queries
+/// @group Mixins
 /// @param {String} $media - breakpoint
 /// @requires {Varaible}
-/// @example sass - Basic usage
+/// @example sass - Usage - Basic usage
 ///   .foobar
 ///     width: 50%
 ///     +respond-to($tablet-sm)
@@ -60,13 +62,14 @@
 // ==========================================================================
 
 /// Prefixer - Works well with other mixins
+/// @group Mixins
 /// @param {String} $property - css property
 /// @param {String} $value - property values
 /// @param {String} $prefixes - webkit moz ms o
-/// @example sass - Mixin usage
+/// @example sass - Usage - Mixin usage
 ///   =transition($props)
 ///     +prefixer(transition, $props)
-/// @example sass - Basic usage
+/// @example sass - Usage - Basic usage
 ///   .foobar
 ///     +transition(all 300ms linear)
 
@@ -83,7 +86,8 @@
 // ==========================================================================
 
 /// IE Specific Styles
-/// @example sass
+/// @group Mixins
+/// @example sass - Usage
 ///   .foobar
 ///     &.lt-ie8
 ///       +old-ie
@@ -99,11 +103,12 @@
 // ==========================================================================
 
 /// Element Sizes
-/// @example sass
-///   .container
+/// @group Mixins
+/// @example sass - Usage
+///   .selector
 ///     +size(1024px, 500px)
-/// @example css
-///   .container { width: 1024px; height: 500px; }
+/// @example css - CSS Output
+///   .selector { width: 1024px; height: 500px; }
 
 =size($w, $h)
   width: $w
@@ -115,11 +120,12 @@
 // ==========================================================================
 
 /// Font Sizes
-/// @example sass
-///   .container
+/// @group Mixins
+/// @example sass - Usage
+///   .selector
 ///     +font-size(18)
-/// @example css
-///   .container { font-size: 1.125rem;}
+/// @example css - CSS Output
+///   .selector { font-size: 1.125rem;}
 
 =font-size($font-size: $base__font--size)
   +transition(all .2s ease-in-out)
@@ -128,8 +134,10 @@
 
 
 
-// [7] Effects
+// [7] Effects & Animations
 // ==========================================================================
+
+/// @group Mixins
 
 =transition($props)
   +prefixer(transition, $props)
@@ -153,13 +161,43 @@
   // ex: +scale(2) scales the element 2x normal size
 
 
+/// Keyframes
+/// @group Mixins
+/// @example sass - Usage
+///   +keyframes(loader)
+/// @example css - CSS Output
+///   @keyframes loader
+///     0%,
+///       box-shadow: 0 2.5em 0 -1.3em
+///     40%
+///       box-shadow: 0 2.5em 0 0
+
+=keyframes($name)
+  +prefixer(keyframes, $name)
+    @content
+
+
+/// Animations
+/// @group Mixins
+/// @example sass - Usage
+///   .selector 
+///     +animation(loader)
+/// @example css - CSS Output
+///   .selector
+///     animation: loader 1.8s infinite ease-in-out
+
+=animation($name)
+  +prefixer(animation, $name)
+
+
 
 // [8] Layout
 // ==========================================================================
 
 /// Position - Assign an element a position
-/// @example sass
-///   .container
+/// @group Mixins
+/// @example sass - Usage
+///   .selector
 ///     +position(abs)
 
 =position($position: 'rel')
@@ -175,8 +213,9 @@
 
 
 /// Location - Assign an elements exact position
-/// @example sass
-///   .container
+/// @group Mixins
+/// @example sass - Usage
+///   .selector
 ///     +location(topLeft, 10, 20)
 
 =location($location, $vertical: auto, $horizontal: auto)
@@ -205,9 +244,12 @@
 
 
 /// Perfectly center any element - as long as the parent it positioned relative
-/// @example sass
-///   .container
-///     +middle-center
+/// @group Mixins
+/// @example sass - Usage
+///   .selector
+///     +middle-center(abs)
+/// @example css - CSS Output
+///   .selector { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) }
 
 =middle-center($position: 'abs')
   +position($position)
@@ -217,7 +259,8 @@
 
 
 /// Builds out a responsive grid system all based on percentages
-/// @example sass
+/// @group Mixins
+/// @example sass - Usage
 ///   .column
 ///     +grid-factory(4, 2%)
 
@@ -231,10 +274,24 @@
     margin-bottom: 0
 
 
+/// Column Span
+/// Takes the default width and multiples is by the given number of columns you want the element to span
+/// @group Mixins
+/// @example sass - Usage
+///   $cell__width      : 175px !default
+///   [colspan="3"]
+///     +column-span($cell__width, 3)
+/// @example css - CSS Output
+///   [colspan="3"] { width: 525px; }
+
+=column-span($default, $number)
+  width: $default * $number
+
 
 // [9] Layout Helpers
 // ==========================================================================
 
+/// @group Mixins
 
 =inline-block($alignment: baseline)
   display: inline-block
@@ -247,9 +304,9 @@
     *display: inline
     *vertical-align: auto
 
-
 /// Vertical Center
-/// @example sass
+/// @group Mixins
+/// @example sass - Usage
 ///   .dropdown span, dropdown span i
 ///     +vertical-center(40px)
 
@@ -259,13 +316,20 @@
   +inline-block(middle)
 
 
+/// Padding Position
+/// @group Mixins
+/// @example sass - Usage
+///   .dropdown span, dropdown span i
+///     +vertical-center(40px)
+
 =padding-position($side, $amount: $base__padding-size)
   padding-#{$side}: ($amount) + px
   padding-#{$side}: rem-sizing($amount) + rem
 
 
 /// Padding
-/// @example sass
+/// @group Mixins
+/// @example sass - Usage
 ///   .content__body
 ///     +padding(20,40)
 
@@ -283,13 +347,15 @@
     padding: ($padding) + px
     padding: rem-sizing($padding) + rem
 
+/// @group Mixins
 
 =margin-position($side, $amount: $base__margin-size)
   margin-#{$side}: ($amount) + px
   margin-#{$side}: rem-sizing($amount) + rem
 
 /// Margin
-/// @example sass
+/// @group Mixins
+/// @example sass - Usage
 ///   .content__body
 ///     +padding(20,40)
 
@@ -312,18 +378,36 @@
 // [10] Borders
 // ==========================================================================
 
-// Example:
-// .container
-//    +border(solid 1 $color-border)
-//
+/// Border
+/// @group Mixins
+/// @example sass - Usage
+/// .selector
+///    +border(solid 1px $color-border)
+/// @example css - CSS Output
+///   .selector { border: solid 1px #888 }
 
 =border($properties)
   border: $properties
 
+/// Border Active
+/// @group Mixins
+/// @example sass - Usage
+/// .selector
+///    +border-active(top, solid 1px $color-border)
+/// @example css - CSS Output
+///   .selector { border-top: solid 1px #888 }
 
 =border-active($position, $properties)
   border-#{$position}: $properties
 
+
+/// Radius
+/// @group Mixins
+/// @example sass - Usage
+/// .selector
+///    +radius(2px)
+/// @example css - CSS Output
+///   .selector { border-radius: 2px }
 
 =radius($size)
   +prefixer(border-radius, $size)
@@ -333,10 +417,13 @@
 // [11] Pseudo Factory
 // ==========================================================================
 
-// Example:
-// .container
-//    +pseudo-el(after, 0, 0)
-//
+/// Pseudo Elements
+/// @group Mixins
+/// @example sass - Usage
+///   .selector
+///     +pseudo-el(after, 50px, 50px)
+/// @example css - CSS Output
+///   .selector:before { content: ''; width: 50px; height: 50px }
 
 =pseudo-el($elem, $elemWidth: auto, $elemHeight: auto)
 
@@ -355,8 +442,9 @@
 // ==========================================================================
 
 /// Shapes - Circle
-/// @example:
-///   .container
+/// @group Mixins
+/// @example sass - Usage
+///   .selector
 ///     +circle(50)
 
 =circle($size)
@@ -364,8 +452,9 @@
 
 
 /// Shapes - Triangle
+/// @group Mixins
 /// @example:
-///   .container
+///   .selector
 ///     +triangle(up, 12, $gray, 5)
 
 =triangle($direction, $size, $clr, $offset: 3)
@@ -405,6 +494,7 @@
 
 /// Customises your blocks or buttons with a different background color and/or
 /// text color. If no text color is specified it will default to white.
+/// @group Mixins
 
 =block-skin($clr)
   border-color: shade($clr, 5%)
@@ -421,6 +511,10 @@
     border-color: darken($bg, 10%)
     background-color: darken($bg, 5%)
 
+=alert-skin($clr)
+  color: shade($clr, 45%)
+  border-color: shade($clr, 15%)
+  background-color: rgba($clr, .8)
 
 
 // [14] Background Images
@@ -439,7 +533,7 @@
 
 
 /// Fullscreen Background for < IE8
-/// @example sass
+/// @example sass - Usage
 ///   .foobar
 ///     +fullscreen-bg
 
