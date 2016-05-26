@@ -13,7 +13,7 @@ dist
 .sass-cache
 
 # Bower Directory
-bower_components
+src/bower_components
 
 #OS or Editor folders
 *.log
