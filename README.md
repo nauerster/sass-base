@@ -145,4 +145,6 @@ In general, the CSS file organization should follow something like this:
 
 ## ToDO
 
-- [ ] Look into install [Refill](https://github.com/thoughtbot/refills)
+- [ ] Look into installing [Refill](https://github.com/thoughtbot/refills)
+- [ ] Research [SASS BEM](https://github.com/zgabievi/sass-bem)
+- [ ] Follow-up on [Pineapple SASS](https://github.com/ArunMichaelDsouza/pineapple-sass)
