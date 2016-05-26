@@ -25,14 +25,17 @@
 // ==========================================================================
 
 /// SMACSS Theming
-/// @group Mixins
+/// ---
+/// @group Theming
+/// ---
 /// @param {String} $name - theme name
+/// ---
 /// @example sass - Usage - Basic usage
 ///   .foobar
 ///     background: $color__background
 ///     +theme(foo)
 ///       background: $color__background--shaded
-
+///
 =theme($name)
   @if $theme == $name
     @content
@@ -42,16 +45,20 @@
 // [2] Media queries
 // ==========================================================================
 
-/// Media Querues - Allows you to pass inline media queries
-/// @group Mixins
+/// Allows you to pass inline media queries
+/// ---
+/// @group Media Queries
+/// ---
 /// @param {String} $media - breakpoint
+/// ---
 /// @requires {Varaible}
+/// ---
 /// @example sass - Usage - Basic usage
 ///   .foobar
 ///     width: 50%
 ///     +respond-to($tablet-sm)
 ///       width: 100%
-
+///
 =respond-to($media)
   @media #{$media}
     @content
@@ -62,17 +69,21 @@
 // ==========================================================================
 
 /// Prefixer - Works well with other mixins
-/// @group Mixins
+/// ---
+/// @group Prefixer
+/// ---
 /// @param {String} $property - css property
 /// @param {String} $value - property values
 /// @param {String} $prefixes - webkit moz ms o
+/// ---
 /// @example sass - Usage - Mixin usage
 ///   =transition($props)
 ///     +prefixer(transition, $props)
+/// ---
 /// @example sass - Usage - Basic usage
 ///   .foobar
 ///     +transition(all 300ms linear)
-
+///
 =prefixer($property, $value, $prefixes: webkit moz ms o)
 
   @each $prefix in $prefixes
@@ -86,13 +97,15 @@
 // ==========================================================================
 
 /// IE Specific Styles
-/// @group Mixins
+/// ---
+/// @group IE Support
+/// ---
 /// @example sass - Usage
 ///   .foobar
 ///     &.lt-ie8
 ///       +old-ie
 ///         { ... }
-
+///
 =old-ie
   @if $old-ie
     @content
@@ -103,13 +116,16 @@
 // ==========================================================================
 
 /// Element Sizes
-/// @group Mixins
+/// ---
+/// @group Sizes
+/// ---
 /// @example sass - Usage
 ///   .selector
 ///     +size(1024px, 500px)
+/// ---
 /// @example css - CSS Output
 ///   .selector { width: 1024px; height: 500px; }
-
+///
 =size($w, $h)
   width: $w
   height: $h
@@ -120,13 +136,15 @@
 // ==========================================================================
 
 /// Font Sizes
-/// @group Mixins
+/// ---
+/// @group Fonts
+/// ---
 /// @example sass - Usage
 ///   .selector
 ///     +font-size(18)
 /// @example css - CSS Output
 ///   .selector { font-size: 1.125rem;}
-
+///
 =font-size($font-size: $base__font--size)
   +transition(all .2s ease-in-out)
   font-size: ($font-size) + px
@@ -137,55 +155,82 @@
 // [7] Effects & Animations
 // ==========================================================================
 
-/// @group Mixins
-
+/// Transitions
+/// ---
+/// @group Effects
+/// ---
+/// @param {Array} $props - Property, duration, method (ex: width 2s linear)
+///
 =transition($props)
   +prefixer(transition, $props)
-  //property, duration, method (ex: width 2s linear)
 
 
+/// Transform - Translate
+/// ---
+/// @group Effects
+///
 =translate($props)
   +prefixer(transform, translate($props))
 
 
+/// Transform - Rotate
+/// ---
+/// @group Effects
+///
 =rotate($deg)
   +prefixer(transform, rotate($deg))
 
 
+/// Box Shadow
+/// ---
+/// @group Effects
+///
 =box-shadow($props)
   +prefixer(box-shadow, $props)
 
 
+/// Transform - Scale
+/// ---
+/// @group Effects
+/// ---
+/// @param {Number} $val - Scales the element 2x normal size
+///
 =scale($val)
   +prefixer(transform, scale($val))
-  // ex: +scale(2) scales the element 2x normal size
+
 
 
 /// Keyframes
-/// @group Mixins
+/// ---
+/// @group Effects
+/// ---
 /// @example sass - Usage
 ///   +keyframes(loader)
+/// ---
 /// @example css - CSS Output
 ///   @keyframes loader
 ///     0%,
 ///       box-shadow: 0 2.5em 0 -1.3em
 ///     40%
 ///       box-shadow: 0 2.5em 0 0
-
+///
 =keyframes($name)
   +prefixer(keyframes, $name)
     @content
 
 
 /// Animations
-/// @group Mixins
+/// ---
+/// @group Effects
+/// ---
 /// @example sass - Usage
 ///   .selector 
 ///     +animation(loader)
+/// ---
 /// @example css - CSS Output
 ///   .selector
 ///     animation: loader 1.8s infinite ease-in-out
-
+///
 =animation($name)
   +prefixer(animation, $name)
 
@@ -194,12 +239,15 @@
 // [8] Layout
 // ==========================================================================
 
+
 /// Position - Assign an element a position
-/// @group Mixins
+/// ---
+/// @group Layout
+/// ---
 /// @example sass - Usage
 ///   .selector
 ///     +position(abs)
-
+///
 =position($position: 'rel')
 
   @if $position == 'abs'
@@ -212,12 +260,14 @@
     position: fixed
 
 
-/// Location - Assign an elements exact position
-/// @group Mixins
+/// Assign an elements exact position
+/// ---
+/// @group Layout
+/// ---
 /// @example sass - Usage
 ///   .selector
 ///     +location(topLeft, 10, 20)
-
+///
 =location($location, $vertical: auto, $horizontal: auto)
 
   @if $location == 'topLeft'
@@ -244,13 +294,16 @@
 
 
 /// Perfectly center any element - as long as the parent it positioned relative
-/// @group Mixins
+/// ---
+/// @group Layout
+/// ---
 /// @example sass - Usage
 ///   .selector
 ///     +middle-center(abs)
+/// ---
 /// @example css - CSS Output
 ///   .selector { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) }
-
+///
 =middle-center($position: 'abs')
   +position($position)
   top: 50%
@@ -259,11 +312,13 @@
 
 
 /// Builds out a responsive grid system all based on percentages
-/// @group Mixins
+/// ---
+/// @group Layout
+/// ---
 /// @example sass - Usage
 ///   .column
 ///     +grid-factory(4, 2%)
-
+///
 =grid-factory($col-per-row, $margin)
   width: ((100% - (($col-per-row - 1) * $margin)) / $col-per-row)
   &:nth-child(n)
@@ -274,16 +329,18 @@
     margin-bottom: 0
 
 
-/// Column Span
 /// Takes the default width and multiples is by the given number of columns you want the element to span
-/// @group Mixins
+/// ---
+/// @group Layout
+/// ---
 /// @example sass - Usage
 ///   $cell__width      : 175px !default
 ///   [colspan="3"]
 ///     +column-span($cell__width, 3)
+/// ---
 /// @example css - CSS Output
 ///   [colspan="3"] { width: 525px; }
-
+///
 =column-span($default, $number)
   width: $default * $number
 
@@ -291,8 +348,10 @@
 // [9] Layout Helpers
 // ==========================================================================
 
-/// @group Mixins
-
+/// Inline Block
+/// ---
+/// @group Layout Helper
+///
 =inline-block($alignment: baseline)
   display: inline-block
 
@@ -304,12 +363,15 @@
     *display: inline
     *vertical-align: auto
 
+
 /// Vertical Center
-/// @group Mixins
+/// ---
+/// @group Layout Helper
+/// ---
 /// @example sass - Usage
 ///   .dropdown span, dropdown span i
 ///     +vertical-center(40px)
-
+///
 =vertical-center($alignment, $height)
   height: $height
   line-height: $height
@@ -317,22 +379,26 @@
 
 
 /// Padding Position
-/// @group Mixins
+/// ---
+/// @group Layout Helper
+/// ---
 /// @example sass - Usage
 ///   .dropdown span, dropdown span i
 ///     +vertical-center(40px)
-
+///
 =padding-position($side, $amount: $base__padding-size)
   padding-#{$side}: ($amount) + px
   padding-#{$side}: rem-sizing($amount) + rem
 
 
 /// Padding
-/// @group Mixins
+/// ---
+/// @group Layout Helper
+/// ---
 /// @example sass - Usage
 ///   .content__body
 ///     +padding(20,40)
-
+///
 =padding($padding: $base__padding--size, $pad2: false, $pad3: false, $pad4: false)
   @if $pad4
     padding: ($padding) + px ($pad2) + px ($pad3) + px ($pad4) + px
@@ -347,18 +413,23 @@
     padding: ($padding) + px
     padding: rem-sizing($padding) + rem
 
-/// @group Mixins
 
+/// Margin Position
+/// ---
+/// @group Layout Helper
+///
 =margin-position($side, $amount: $base__margin-size)
   margin-#{$side}: ($amount) + px
   margin-#{$side}: rem-sizing($amount) + rem
 
 /// Margin
-/// @group Mixins
+/// ---
+/// @group Layout Helper
+/// ---
 /// @example sass - Usage
 ///   .content__body
 ///     +padding(20,40)
-
+///
 =margin($margin: $base__margin--size, $mrg2: false, $mrg3: false, $mrg4: false)
   @if $mrg4
     margin: ($margin) + px ($mrg2) + px ($mrg3) + px ($mrg4) + px
@@ -379,36 +450,42 @@
 // ==========================================================================
 
 /// Border
-/// @group Mixins
+/// @group Borders
 /// @example sass - Usage
 /// .selector
 ///    +border(solid 1px $color-border)
 /// @example css - CSS Output
 ///   .selector { border: solid 1px #888 }
-
+///
 =border($properties)
   border: $properties
 
 /// Border Active
-/// @group Mixins
+/// ---
+/// @group Borders
+/// ---
 /// @example sass - Usage
 /// .selector
 ///    +border-active(top, solid 1px $color-border)
+/// ---
 /// @example css - CSS Output
 ///   .selector { border-top: solid 1px #888 }
-
+///
 =border-active($position, $properties)
   border-#{$position}: $properties
 
 
 /// Radius
-/// @group Mixins
+/// ---
+/// @group Borders
+/// ---
 /// @example sass - Usage
 /// .selector
 ///    +radius(2px)
+/// ---
 /// @example css - CSS Output
 ///   .selector { border-radius: 2px }
-
+///
 =radius($size)
   +prefixer(border-radius, $size)
 
@@ -418,13 +495,16 @@
 // ==========================================================================
 
 /// Pseudo Elements
-/// @group Mixins
+/// ---
+/// @group Pseudo
+/// ---
 /// @example sass - Usage
 ///   .selector
 ///     +pseudo-el(after, 50px, 50px)
+/// ---
 /// @example css - CSS Output
 ///   .selector:before { content: ''; width: 50px; height: 50px }
-
+///
 =pseudo-el($elem, $elemWidth: auto, $elemHeight: auto)
 
   @if $elem == 'before' or $elem == 'after'
@@ -442,21 +522,25 @@
 // ==========================================================================
 
 /// Shapes - Circle
-/// @group Mixins
+/// ---
+/// @group Shapes
+/// ---
 /// @example sass - Usage
 ///   .selector
 ///     +circle(50)
-
+///
 =circle($size)
   +radius($size / 2)
 
 
 /// Shapes - Triangle
-/// @group Mixins
+/// ---
+/// @group Shapes
+/// ---
 /// @example:
 ///   .selector
 ///     +triangle(up, 12, $gray, 5)
-
+///
 =triangle($direction, $size, $clr, $offset: 3)
 
   @if $direction == 'up'
@@ -490,17 +574,22 @@
 
 
 // [13] Skins
+// Customises your blocks or buttons with a different background color and/or 
+// text color. If no text color is specified it will default to white.
 // ==========================================================================
 
-/// Customises your blocks or buttons with a different background color and/or
-/// text color. If no text color is specified it will default to white.
-/// @group Mixins
-
+/// Blocks
+/// ---
+/// @group Skins
+///
 =block-skin($clr)
   border-color: shade($clr, 5%)
   background-color: $clr
 
-
+/// Buttons
+/// ---
+/// @group Skins
+///
 =button-skin($clr, $bg)
   +transition(all 300ms linear)
   color: $clr
@@ -511,6 +600,10 @@
     border-color: darken($bg, 10%)
     background-color: darken($bg, 5%)
 
+/// Alerts
+/// ---
+/// @group Skins
+///
 =alert-skin($clr)
   color: shade($clr, 45%)
   border-color: shade($clr, 15%)
@@ -522,8 +615,10 @@
 
 
 /// Background Banners
-/// Revisit - not working
-
+/// ---
+/// @group Backgrounds
+/// ---
+///
 =fullwidth-banner($origin: content-box, $position: center, $color: $color__background)
   @extend %bg-cover
   background-origin: $origin
@@ -533,11 +628,13 @@
 
 
 /// Fullscreen Background for < IE8
+/// ---
+/// @group backgrounds
+/// ---
 /// @example sass - Usage
 ///   .foobar
 ///     +fullscreen-bg
-
-
+///
 =fullscreen-bg($size, $position, $location)
   +size(200%, 200%)
   +position(fix)
@@ -559,10 +656,13 @@
 
 
 /// Semi-Transparent Colors
-/// @example:
+/// ---
+/// @group opacity
+/// ---
+/// @example sass - Usage
 ///   .foobar
 ///     +alpha-attr('background-color', rgba(black, 0.3) white)
-
+///
 =alpha-attr($attr, $color, $bg)
   $percent: alpha($color) * 100%
   $opaque: opacify($color, 1)
@@ -572,10 +672,13 @@
 
 
 /// Opacity filter < IE7 Fallback
-/// @example:
+/// ---
+/// @group opacity
+/// ---
+/// @example sass - Usage
 ///   .foobar
 ///     +opacity(4)
-
+///
 =opacity($opacity)
   filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})")
   opacity: $opacity
@@ -588,10 +691,13 @@
 
 
 /// RGBA Fallback
-/// @example:
+/// ---
+/// @group opacity
+/// ---
+/// @example sass - Usage
 ///   .foobar
 ///     +rgba-bg(#F37, .9)
-
+///
 =rgba-bg($color, $percent)
   background: $color
   background: rgba($color, $percent)
@@ -602,12 +708,17 @@
 // ==========================================================================
 
 /// Gives a card depth effect.
+/// ---
+/// @group opacity
+/// ---
 /// @param {Number} $depth - depth level (between 1 and 5)
+/// ---
 /// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
 /// @link https://css-tricks.com/snippets/sass/material-shadows-mixin/
+/// ---
 /// @requires {function} top-shadow
 /// @requires {function} bottom-shadow
-
+///
 =card-depth($depth)
   @if $depth < 1
     box-shadow: none

@@ -10,6 +10,7 @@ Based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with
 2. [Fire It Up](#fire-it-up)
 3. [Documentation](#documentation)
 4. [File Organization](#file-organization)
+5. [ToDo](#todo)
 
 ## Getting Started
 
@@ -116,7 +117,9 @@ In general, the CSS file organization should follow something like this:
   |   |       | _units.scss               # ems to rems conversion
   |   |       | _layout.scss              # width calculations and depth mapping
   |   |
-  |   |   |-- _global.sass                # global variables
+  |   |   |-- _config.sass                # config variables
+  |   |   |-- _colors.sass                # color variables
+  |   |   |-- _typography.sass            # typography variables
   |   |   |-- _helpers.sass               # extension classes
   |   |   |-- _mixins.sass                # media queries, CSS3, etc.
   |   |   |-- _lib.sass                   # imports for third party styles
@@ -124,7 +127,6 @@ In general, the CSS file organization should follow something like this:
   |   |       | _pesticide.scss           # CSS pesticide
   |   |       | _animate.scss             # Cross-Browser animation library
   |   |
-  |   |   + ie.sass                       # IE specific Sass file
   |   |   + styles.sass                   # primary Sass file
   |   |   + _shame.sass                   # because hacks happen
   |
@@ -140,3 +142,7 @@ In general, the CSS file organization should follow something like this:
   + package.json                          # Grunt metadata & dependencies
 
 ```
+
+## ToDO
+
+- [ ] Look into install [Refill](https://github.com/thoughtbot/refills)

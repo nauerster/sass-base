@@ -56,12 +56,11 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    pkg: grunt.file.readJSON('package.json'),
 
     // Watches files for changes and runs tasks based on the changed files --> grunt watch
     watch: {
       css: {
-        files: ['sass/**/*.{sass,scss}'],
+        files: ['src/sass/**/*.{sass,scss}'],
         tasks: ['sass:dev'],
         options: {
           spawn: false
@@ -79,12 +78,12 @@ module.exports = function(grunt) {
     // Deletes files and prevents duplication --> grunt clean
     clean: {
       dev: [
-        'css/dev/*.css',
-        'css/dev/*.map'
+        'src/css/dev/*.css',
+        'src/css/dev/*.map'
       ],
       prod: [
-        'css/prod/*.css',
-        'css/prod/*.map'
+        'src/css/prod/*.css',
+        'src/css/prod/*.map'
       ],
       docs: [
         'docs'
@@ -99,7 +98,7 @@ module.exports = function(grunt) {
           sourceMap: false
         },
         files: {                                                    // Dictionary of files
-          'css/dev/theme.dev.css' : 'sass/styles.sass'              // 'destination': 'source'
+          'src/css/dev/theme.dev.css' : 'src/sass/styles.sass'      // 'destination': 'source'
         }
       },
       prod: {
@@ -107,7 +106,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          'css/prod/theme.prod.css' : 'sass/styles.sass'
+          'src/css/prod/theme.prod.css' : 'src/sass/styles.sass'
         }
       }
     },
@@ -115,10 +114,9 @@ module.exports = function(grunt) {
     // Configure sass documentation --> grunt sassdoc
     sassdoc: {
       default: {
-        src: 'sass',
-        dest: 'docs',
+        src: 'src/sass',
         options: {
-          package: 'package.json'
+          dest: 'src/docs'
         }
       }
     },
@@ -128,9 +126,9 @@ module.exports = function(grunt) {
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'images/',
+          cwd: 'src/images/',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'images/build/'
+          dest: 'src/images/build/'
         }]
       }
     }
